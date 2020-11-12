@@ -1,9 +1,9 @@
-extends KinematicBody2D
+extends Actor
 
 
 # Declare member variables here.
-export var speed = 400  # How fast the player will move (pixels/sec).
-var screen_size  # Size of the game window.
+export var speed = Vector2(400, 100) # How fast the player will move (pixels/sec).
+var screen_size  # Size of the game window (eg. movement limitation)
 
 
 # Called when the node enters the scene tree for the first time.

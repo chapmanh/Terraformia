@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/highDown.ogg-084947f5171a4616c4ec2d4673bd4c43.oggstr"
+
+[deps]
+
+source_file="res://Assets/AUDIO/Kenny Free Sounds/highDown.ogg"
+dest_files=[ "res://.import/highDown.ogg-084947f5171a4616c4ec2d4673bd4c43.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

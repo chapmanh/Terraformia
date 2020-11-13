@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/laser6.ogg-7eb1b3eb98efd5a8fd69e851f1b9828a.oggstr"
+
+[deps]
+
+source_file="res://Assets/AUDIO/Kenny Free Sounds/laser6.ogg"
+dest_files=[ "res://.import/laser6.ogg-7eb1b3eb98efd5a8fd69e851f1b9828a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

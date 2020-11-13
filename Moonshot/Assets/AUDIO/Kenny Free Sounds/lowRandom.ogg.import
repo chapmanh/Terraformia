@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/lowRandom.ogg-26c953d6216089cb1d8a920628b031eb.oggstr"
+
+[deps]
+
+source_file="res://Assets/AUDIO/Kenny Free Sounds/lowRandom.ogg"
+dest_files=[ "res://.import/lowRandom.ogg-26c953d6216089cb1d8a920628b031eb.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

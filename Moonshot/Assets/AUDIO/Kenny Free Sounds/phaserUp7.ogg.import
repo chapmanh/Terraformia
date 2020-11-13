@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/phaserUp7.ogg-f37a6cd98940b3b70dac5de284605ce0.oggstr"
+
+[deps]
+
+source_file="res://Assets/AUDIO/Kenny Free Sounds/phaserUp7.ogg"
+dest_files=[ "res://.import/phaserUp7.ogg-f37a6cd98940b3b70dac5de284605ce0.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

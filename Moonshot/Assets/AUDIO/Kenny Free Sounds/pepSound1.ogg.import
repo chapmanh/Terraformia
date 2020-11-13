@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/pepSound1.ogg-2aed7ad1a1d4f8b13e7e89ff74c66582.oggstr"
+
+[deps]
+
+source_file="res://Assets/AUDIO/Kenny Free Sounds/pepSound1.ogg"
+dest_files=[ "res://.import/pepSound1.ogg-2aed7ad1a1d4f8b13e7e89ff74c66582.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

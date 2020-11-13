@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/threeTone2.ogg-39e27fb97ea2283766f86f1dd68746fa.oggstr"
+
+[deps]
+
+source_file="res://Assets/AUDIO/Kenny Free Sounds/threeTone2.ogg"
+dest_files=[ "res://.import/threeTone2.ogg-39e27fb97ea2283766f86f1dd68746fa.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

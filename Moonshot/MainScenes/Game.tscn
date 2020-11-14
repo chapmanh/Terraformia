@@ -1,0 +1,39 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Meteor/Meteor.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Background_landscape.png" type="Texture" id=2]
+[ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MainScenes/Game.gd" type="Script" id=4]
+
+[sub_resource type="Curve2D" id=1]
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 720, 64, 0, 0, 0, 0, 720, 400 )
+}
+
+[node name="Game" type="Node2D"]
+script = ExtResource( 4 )
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 207.198, 196.998 )
+
+[node name="Meteor" parent="." instance=ExtResource( 1 )]
+position = Vector2( 791.979, 241.843 )
+
+[node name="Background_landscape" type="Sprite" parent="."]
+position = Vector2( 512, 506.13 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 2 )
+region_enabled = true
+region_rect = Rect2( 0, 32, 381, 80 )
+
+[node name="MobPathRight" type="Path2D" parent="."]
+curve = SubResource( 1 )
+
+[node name="MobSpawnLocationRight" type="PathFollow2D" parent="MobPathRight"]
+position = Vector2( 720, 64 )
+rotation = 1.5708
+
+[node name="MobTimer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]

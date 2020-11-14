@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=2]
-
-[ext_resource path="res://Assets/Background_landscape.png" type="Texture" id=1]
-
-[node name="Background" type="Sprite"]
-scale = Vector2( 2.5, 1 )
-texture = ExtResource( 1 )
-region_enabled = true
-region_rect = Rect2( 0, 32, 381, 80 )

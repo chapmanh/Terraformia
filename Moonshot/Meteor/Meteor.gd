@@ -19,12 +19,10 @@ var speed: float = 0
 var rotationRate: float = 0
 
 func _ready():
-	var mouthTimerCurrent := mouthTimer
 	speed = rand_range(minSpeed, maxSpeed)
 	rotationRate = rand_range(minRotationRate, maxRotationRate)
 	spriteOpen.hide()
 	spriteDead.hide()
-	print(spriteOpen.visible)
 	
 	
 func _process(delta: float) -> void:

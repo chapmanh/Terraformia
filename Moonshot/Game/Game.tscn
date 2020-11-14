@@ -18,5 +18,3 @@ position = Vector2( 641.853, 405.493 )
 
 [node name="Bullet" parent="." instance=ExtResource( 4 )]
 position = Vector2( 533.209, 335.88 )
-
-[node name="Camera2D" type="Camera2D" parent="."]

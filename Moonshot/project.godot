@@ -8,21 +8,20 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "KinematicBody2D",
-"class": "Actor",
-"language": "GDScript",
-"path": "res://Actors/Actor.gd"
-} ]
+_global_script_classes=[  ]
 _global_script_class_icons={
-"Actor": ""
+
 }
 
 [application]
 
 config/name="GameJam2020"
-run/main_scene="res://Game/Game.tscn"
+run/main_scene="res://MainScenes/Game.tscn"
 config/icon="res://icon.png"
+
+[audio]
+
+default_bus_layout=""
 
 [display]
 
@@ -106,6 +105,14 @@ game_fire_secondary={
  ]
 }
 
+[layer_names]
+
+2d_physics/layer_1="player"
+2d_physics/layer_2="enemy"
+2d_physics/layer_3="player_projectile"
+2d_physics/layer_4="enemy_projectile"
+
 [rendering]
 
+quality/driver/driver_name="GLES2"
 environment/default_environment="res://default_env.tres"

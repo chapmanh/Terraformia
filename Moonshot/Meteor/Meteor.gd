@@ -23,10 +23,10 @@ func _ready():
 	rotationRate = rand_range(minRotationRate, maxRotationRate)
 	spriteOpen.hide()
 	spriteDead.hide()
-	
-	
+
+
 func _process(delta: float) -> void:
-	# Butchered animation attempt, feel free to upgrade with AnimatedSprite
+	# Butchered animation attempt, I AM SORRY
 	if mouthTimerCurrent <= 0:
 		if spriteOpen.visible:
 			spriteOpen.hide()
@@ -48,11 +48,19 @@ func _physics_process(delta: float) -> void:
 func damage(amount: int):
 	life -= amount
 	if life <= 0:
-		spriteClosed.hide()
-		spriteOpen.hide()
-		spriteDead.show()
-		$CollisionPolygon2D.set_deferred("disabled", true)
-		#queue_free()
+		die()
+		
+func die():
+	spriteClosed.hide()
+	spriteOpen.hide()
+	spriteDead.show()
+	$CollisionPolygon2D.set_deferred("disabled", true)
+	$DeathTimer.start()
 
+# Leave screen = Remove
 func _on_VisibilityNotifier2D_screen_exited() -> void:
+	queue_free()
+
+# Dead for a while = Remove
+func _on_DeathTimer_timeout() -> void:
 	queue_free()

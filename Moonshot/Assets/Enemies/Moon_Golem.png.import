@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Ship_Damaged.png-4b7c8d47d33bf21563d94fa622f21c36.stex"
+path="res://.import/Moon_Golem.png-7a6f71a2ecaca162d0168f4a99865b6b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Ship_Damaged.png"
-dest_files=[ "res://.import/Ship_Damaged.png-4b7c8d47d33bf21563d94fa622f21c36.stex" ]
+source_file="res://Assets/Enemies/Moon_Golem.png"
+dest_files=[ "res://.import/Moon_Golem.png-7a6f71a2ecaca162d0168f4a99865b6b.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

@@ -10,7 +10,6 @@ func _ready() -> void:
 
 
 
-
 func _on_MobTimer_timeout() -> void:
 	# Choose a random location on Path2D.
 	$MobPathRight/MobSpawnLocationRight.offset = randi()

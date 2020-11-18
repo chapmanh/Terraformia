@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Background_landscape_5.png-2321dd156314043f8ca6e518145d4f28.stex"
+path="res://.import/Landscape_blue_1.png-af91e6a365ac2539bc092cdbbcdcfd28.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background_landscape_5.png"
-dest_files=[ "res://.import/Background_landscape_5.png-2321dd156314043f8ca6e518145d4f28.stex" ]
+source_file="res://Assets/Backgrounds/Landscape_blue_1.png"
+dest_files=[ "res://.import/Landscape_blue_1.png-af91e6a365ac2539bc092cdbbcdcfd28.stex" ]
 
 [params]
 

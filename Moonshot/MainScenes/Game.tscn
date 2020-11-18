@@ -17,8 +17,10 @@ _data = {
 script = ExtResource( 4 )
 
 [node name="Background_3" parent="." instance=ExtResource( 7 )]
+visible = false
 
 [node name="Background_2" parent="." instance=ExtResource( 6 )]
+visible = false
 
 [node name="Background_1" parent="." instance=ExtResource( 2 )]
 

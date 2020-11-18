@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Background_landscape_1.png-e99628b1afb14b81ff05c47bdc40a957.stex"
+path="res://.import/Landscape_grey_3.png-deed90acdd6608dc6cad83337f411955.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Background_landscape_1.png"
-dest_files=[ "res://.import/Background_landscape_1.png-e99628b1afb14b81ff05c47bdc40a957.stex" ]
+source_file="res://Assets/Backgrounds/Landscape_grey_3.png"
+dest_files=[ "res://.import/Landscape_grey_3.png-deed90acdd6608dc6cad83337f411955.stex" ]
 
 [params]
 

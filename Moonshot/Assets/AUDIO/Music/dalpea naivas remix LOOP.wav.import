@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/dalpea naivas remix LOOP.wav-81907e25deb2f8d72d9f160197cfc73b.sample"
+
+[deps]
+
+source_file="res://Assets/AUDIO/Music/dalpea naivas remix LOOP.wav"
+dest_files=[ "res://.import/dalpea naivas remix LOOP.wav-81907e25deb2f8d72d9f160197cfc73b.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

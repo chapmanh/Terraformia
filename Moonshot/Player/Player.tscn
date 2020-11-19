@@ -98,12 +98,20 @@ region_rect = Rect2( 10, 171, 175, 94 )
 visible = false
 polygon = PoolVector2Array( -12.4718, -13.4874, -20.4849, -20.0056, -34.2986, -20.4242, -36.272, -17.9724, -26.8237, -10.0191, -30.5911, -5.35468, -31.0695, 5.46904, -38.664, 10.6716, -33.9398, 13.9606, -18.4517, 14.1998, -16.299, 14.6184, -8.88381, 20.0003, 14.9762, 20.5983, 24.0658, 19.3425, 31.1221, 17.0104, 37.2815, 11.0304, 37.5805, 4.87104, 36.0855, 1.34287, 35.6669, -1.22851, 33.0955, -3.97929, 29.6869, -5.53408, 27.7733, -5.89288, 24.0658, -9.00246, 17.0094, -12.3512, 11.747, -13.6668, 3.7937, -14.4442, -3.68124, -14.4442 )
 
-[node name="FiringPositions" type="Node2D" parent="."]
+[node name="PrimaryPositions" type="Node2D" parent="."]
 
-[node name="Gun1" type="Node2D" parent="FiringPositions"]
+[node name="Primary_1" type="Node2D" parent="PrimaryPositions"]
 position = Vector2( 44.8324, 8.50123 )
 
-[node name="FireDelayTimer" type="Timer" parent="."]
+[node name="SecondaryPositions" type="Node2D" parent="."]
+
+[node name="Secondary_1" type="Node2D" parent="SecondaryPositions"]
+position = Vector2( 5.30554, 24.4896 )
+
+[node name="PrimaryDelayTimer" type="Timer" parent="."]
+one_shot = true
+
+[node name="SecondaryDelayTimer" type="Timer" parent="."]
 one_shot = true
 
 [node name="InvulnerabilityTimer" type="Timer" parent="."]

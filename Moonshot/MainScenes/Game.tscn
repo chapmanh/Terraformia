@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Meteor/Meteor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://FGBG/Background/Background_1.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://FGBG/Background/Background_Distant.tscn" type="PackedScene" id=8]
 [ext_resource path="res://FGBG/Background/Background_Distant.gd" type="Script" id=9]
 [ext_resource path="res://FGBG/Background/Background_Distant_Static.tscn" type="PackedScene" id=10]
+[ext_resource path="res://FGBG/Background/Ground.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Curve2D" id=1]
 _data = {
@@ -30,6 +31,10 @@ visible = false
 [node name="Background_2" parent="." instance=ExtResource( 6 )]
 
 [node name="Background_1" parent="." instance=ExtResource( 2 )]
+visible = false
+
+[node name="Ground" parent="." instance=ExtResource( 11 )]
+position = Vector2( -1.07593, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 207.198, 196.998 )

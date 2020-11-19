@@ -1,14 +1,19 @@
 extends Area2D
 
-var plBullet := preload("res://Bullet/Bullet.tscn")
+var plBullet := preload("res://Projectiles/Bullet/Bullet.tscn")
+var plSeed := preload("res://Projectiles/Seed/Seed.tscn")
 
 signal health_updated(health)
 signal killed()
 
 #onready var animatedSprite := $AnimatedSprite
 
-onready var firingPositions := $FiringPositions
-onready var fireDelayTimer := $FireDelayTimer
+onready var primaryPositions := $PrimaryPositions
+onready var primaryDelayTimer := $PrimaryDelayTimer
+
+onready var secondaryPositions := $SecondaryPositions
+onready var secondaryDelayTimer := $SecondaryDelayTimer
+
 onready var invulnerabilityTimer := $InvulnerabilityTimer
 onready var effectAnimation := $EffectAnimation
 
@@ -21,7 +26,8 @@ onready var shipSprites := [
 	]
 
 export var speed: float = 100.0
-export var fireDelay: float = 0.1 
+export var primaryFireDelay: float = 0.1 
+export var secondaryFireDelay: float = 2.0
 export var invincibility: float = 2.0
 export var max_health: float = 4 # 0 = dead
 
@@ -47,12 +53,20 @@ func _process(delta):
 #		animatedSprite.play("Straight")
 		
 	# Check if shooting
-	if Input.is_action_pressed("game_fire_primary") and fireDelayTimer.is_stopped():
-		fireDelayTimer.start(fireDelay)
-		for child in firingPositions.get_children():
+	if Input.is_action_pressed("game_fire_primary") and primaryDelayTimer.is_stopped():
+		primaryDelayTimer.start(primaryFireDelay)
+		for child in primaryPositions.get_children():
 			var bullet = plBullet.instance()
 			bullet.global_position = child.global_position
 			get_tree().current_scene.add_child(bullet)
+			
+		# Check if shooting
+	if Input.is_action_pressed("game_fire_secondary") and secondaryDelayTimer.is_stopped():
+		secondaryDelayTimer.start(secondaryFireDelay)
+		for child in secondaryPositions.get_children():
+			var Seed = plSeed.instance()
+			Seed.global_position = child.global_position
+			get_tree().current_scene.add_child(Seed)
 	
 	# Collision detection: (returns false if array is empty)
 	if get_overlapping_areas():
@@ -80,7 +94,8 @@ func _physics_process(delta: float) -> void:
 	# Make sure player stays in screen
 	var viewRect := get_viewport_rect()
 	position.x = clamp(position.x, 0, viewRect.size.x)
-	position.y = clamp(position.y, 0, viewRect.size.y)
+	position.y = clamp(position.y, 0, viewRect.size.y - 75)
+	# Manually subtracting ground size to prevent flying through ground
 
 	
 func damage(amount): # Could implement damage types here, with modifiers

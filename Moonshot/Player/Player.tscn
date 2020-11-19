@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Ship/Ship_Damaged_1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -6,27 +6,90 @@
 [ext_resource path="res://Assets/Ship/Ship_Damaged_3.png" type="Texture" id=4]
 [ext_resource path="res://Assets/Ship/Ship_Damaged_2.png" type="Texture" id=5]
 
+[sub_resource type="Animation" id=1]
+resource_name = "damage"
+length = 0.1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.05, 0.1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "flash"
+length = 0.2
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ true, false, true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "rest"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprites:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
 [node name="Player" type="Area2D"]
 collision_mask = 10
 script = ExtResource( 2 )
 speed = 200.0
 
-[node name="Ship_0" type="Sprite" parent="."]
+[node name="Sprites" type="Node2D" parent="."]
+
+[node name="Ship_0" type="Sprite" parent="Sprites"]
 scale = Vector2( 0.75, 0.75 )
 texture = ExtResource( 3 )
 region_rect = Rect2( 10, 171, 175, 94 )
 
-[node name="Ship_1" type="Sprite" parent="."]
+[node name="Ship_1" type="Sprite" parent="Sprites"]
 scale = Vector2( 0.447588, 0.447588 )
 texture = ExtResource( 1 )
 region_rect = Rect2( 10, 171, 175, 94 )
 
-[node name="Ship_2" type="Sprite" parent="."]
+[node name="Ship_2" type="Sprite" parent="Sprites"]
 scale = Vector2( 0.447588, 0.447588 )
 texture = ExtResource( 5 )
 region_rect = Rect2( 10, 171, 175, 94 )
 
-[node name="Ship_3" type="Sprite" parent="."]
+[node name="Ship_3" type="Sprite" parent="Sprites"]
 scale = Vector2( 0.447588, 0.447588 )
 texture = ExtResource( 4 )
 region_rect = Rect2( 10, 171, 175, 94 )
@@ -43,5 +106,12 @@ position = Vector2( 44.8324, 8.50123 )
 [node name="FireDelayTimer" type="Timer" parent="."]
 one_shot = true
 
-[node name="InvincibilityTimer" type="Timer" parent="."]
+[node name="InvulnerabilityTimer" type="Timer" parent="."]
+wait_time = 0.8
 one_shot = true
+
+[node name="EffectAnimation" type="AnimationPlayer" parent="."]
+anims/damage = SubResource( 1 )
+anims/flash = SubResource( 2 )
+anims/rest = SubResource( 3 )
+[connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]

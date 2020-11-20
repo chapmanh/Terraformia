@@ -1,0 +1,58 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/entities.png" type="Texture" id=1]
+[ext_resource path="res://Projectiles/Seed/Seed.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 6.00623
+height = 11.3688
+
+[sub_resource type="Animation" id=2]
+resource_name = "grow"
+length = 2.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:region_rect")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Rect2( 19, 362, 16, 24 ), Rect2( 14, 412, 21, 21 ), Rect2( 54, 395, 39, 37 ), Rect2( 96, 377, 42, 55 ), Rect2( 156, 355, 52, 75 ), Rect2( 224, 342, 62, 89 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:offset")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -5 ), Vector2( 6, -13 ), Vector2( 1, -22 ), Vector2( 2, -33 ), Vector2( 1, -40 ) ]
+}
+
+[node name="Seed" type="Area2D"]
+collision_layer = 4
+collision_mask = 32
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+region_enabled = true
+region_rect = Rect2( 19, 362, 16, 24 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 0.436332
+shape = SubResource( 1 )
+
+[node name="VisibilityNotifier2D" type="VisibilityNotifier2D" parent="."]
+scale = Vector2( 0.5, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/grow = SubResource( 2 )
+[connection signal="area_entered" from="." to="." method="_on_Seed_area_entered"]
+[connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

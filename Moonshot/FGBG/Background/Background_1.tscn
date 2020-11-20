@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Assets/Background_landscape_1.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Backgrounds/Landscape_blue_1.png" type="Texture" id=1]
 [ext_resource path="res://FGBG/ScrollingBackground.tscn" type="PackedScene" id=2]
 
 [sub_resource type="Shader" id=1]
@@ -24,9 +24,7 @@ shader_param/scroll_speed = 0.25
 
 [node name="ScrollingBackground" parent="." instance=ExtResource( 2 )]
 material = SubResource( 2 )
-margin_left = -35.0
-margin_top = 436.0
-margin_right = 482.0
-margin_bottom = 517.0
-rect_scale = Vector2( 2.08, 2.08 )
+margin_top = 300.0
+margin_right = 1024.0
+margin_bottom = 600.0
 texture = ExtResource( 1 )

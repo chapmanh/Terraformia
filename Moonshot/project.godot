@@ -111,6 +111,8 @@ game_fire_secondary={
 2d_physics/layer_2="enemy"
 2d_physics/layer_3="player_projectile"
 2d_physics/layer_4="enemy_projectile"
+2d_physics/layer_5="Floor_Ship"
+2d_physics/layer_6="Floor_Plant"
 
 [rendering]
 

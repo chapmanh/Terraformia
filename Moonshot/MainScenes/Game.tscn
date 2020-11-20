@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Meteor/Meteor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://FGBG/Background/Background_1.tscn" type="PackedScene" id=2]
@@ -11,26 +11,37 @@
 [ext_resource path="res://FGBG/Background/Background_Distant.gd" type="Script" id=9]
 [ext_resource path="res://FGBG/Background/Background_Distant_Static.tscn" type="PackedScene" id=10]
 [ext_resource path="res://FGBG/Background/Ground.tscn" type="PackedScene" id=11]
+[ext_resource path="res://MainScenes/SpawnLocations/MobPath.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Curve2D" id=1]
+resource_local_to_scene = true
 _data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 1068.54, 46.0835, 0, 0, 0, 0, 1068.54, 398.911 )
+"points": PoolVector2Array( 0, 0, 0, 0, 264, -8, 0, 0, 0, 0, 264, 416 )
+}
+
+[sub_resource type="Curve2D" id=2]
+resource_local_to_scene = true
+_data = {
+"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 328, 0 )
 }
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
 
-[node name="Background_Distant" parent="." instance=ExtResource( 8 )]
-script = ExtResource( 9 )
-
-[node name="Background_Distant_Static" parent="." instance=ExtResource( 10 )]
+[node name="Backgrounds" type="Node2D" parent="."]
 visible = false
 
-[node name="Background_3" parent="." instance=ExtResource( 7 )]
+[node name="Background_Distant" parent="Backgrounds" instance=ExtResource( 8 )]
+script = ExtResource( 9 )
 
-[node name="Background_2" parent="." instance=ExtResource( 6 )]
+[node name="Background_Distant_Static" parent="Backgrounds" instance=ExtResource( 10 )]
+visible = false
 
-[node name="Background_1" parent="." instance=ExtResource( 2 )]
+[node name="Background_3" parent="Backgrounds" instance=ExtResource( 7 )]
+
+[node name="Background_2" parent="Backgrounds" instance=ExtResource( 6 )]
+
+[node name="Background_1" parent="Backgrounds" instance=ExtResource( 2 )]
 visible = false
 
 [node name="Ground" parent="." instance=ExtResource( 11 )]
@@ -42,12 +53,12 @@ position = Vector2( 207.198, 196.998 )
 [node name="Meteor" parent="." instance=ExtResource( 1 )]
 position = Vector2( 896.941, 494.796 )
 
-[node name="MobPathRight" type="Path2D" parent="."]
+[node name="MobPathRight" parent="." instance=ExtResource( 12 )]
+position = Vector2( 688, 72 )
 curve = SubResource( 1 )
 
-[node name="MobSpawnLocationRight" type="PathFollow2D" parent="MobPathRight"]
-position = Vector2( 1068.54, 46.0835 )
-rotation = 1.57073
+[node name="MobPath" parent="." instance=ExtResource( 12 )]
+curve = SubResource( 2 )
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -55,4 +66,4 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-[connection signal="timeout" from="MobTimer" to="." method="_on_MobTimer_timeout"]
+[connection signal="timeout" from="MobTimer" to="MobPath" method="_on_MobTimer_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Meteor/Meteor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://FGBG/Background/Background_1.tscn" type="PackedScene" id=2]
@@ -11,19 +11,8 @@
 [ext_resource path="res://FGBG/Background/Background_Distant.gd" type="Script" id=9]
 [ext_resource path="res://FGBG/Background/Background_Distant_Static.tscn" type="PackedScene" id=10]
 [ext_resource path="res://FGBG/Background/Ground.tscn" type="PackedScene" id=11]
-[ext_resource path="res://MainScenes/SpawnLocations/MobPath.tscn" type="PackedScene" id=12]
-
-[sub_resource type="Curve2D" id=1]
-resource_local_to_scene = true
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 264, -8, 0, 0, 0, 0, 264, 416 )
-}
-
-[sub_resource type="Curve2D" id=2]
-resource_local_to_scene = true
-_data = {
-"points": PoolVector2Array( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 328, 0 )
-}
+[ext_resource path="res://MainScenes/EnemyGenerator.gd" type="Script" id=12]
+[ext_resource path="res://MainScenes/EnemySpawn.gd" type="Script" id=13]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -45,20 +34,23 @@ visible = false
 visible = false
 
 [node name="Ground" parent="." instance=ExtResource( 11 )]
+visible = false
 position = Vector2( -1.07593, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 207.198, 196.998 )
+position = Vector2( 615.205, 445.232 )
 
-[node name="Meteor" parent="." instance=ExtResource( 1 )]
-position = Vector2( 896.941, 494.796 )
+[node name="EnemySpawn" type="Node2D" parent="."]
+script = ExtResource( 13 )
 
-[node name="MobPathRight" parent="." instance=ExtResource( 12 )]
-position = Vector2( 688, 72 )
-curve = SubResource( 1 )
+[node name="Meteor" parent="EnemySpawn" instance=ExtResource( 1 )]
+position = Vector2( 726.336, 397.308 )
 
-[node name="MobPath" parent="." instance=ExtResource( 12 )]
-curve = SubResource( 2 )
+[node name="EnemyGeneratorRight" type="Position2D" parent="EnemySpawn"]
+script = ExtResource( 12 )
+
+[node name="Timer" type="Timer" parent="EnemySpawn/EnemyGeneratorRight"]
+autostart = true
 
 [node name="MobTimer" type="Timer" parent="."]
 wait_time = 2.0
@@ -66,4 +58,5 @@ autostart = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-[connection signal="timeout" from="MobTimer" to="MobPath" method="_on_MobTimer_timeout"]
+[connection signal="create_enemy" from="EnemySpawn/EnemyGeneratorRight" to="EnemySpawn" method="_on_EnemyGenerator_create_enemy"]
+[connection signal="timeout" from="EnemySpawn/EnemyGeneratorRight/Timer" to="EnemySpawn/EnemyGeneratorRight" method="_on_Timer_timeout"]

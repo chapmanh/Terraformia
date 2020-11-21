@@ -15,7 +15,10 @@ onready var spriteOpen = $SpriteOpen
 onready var spriteClosed = $SpriteClosed
 onready var spriteDead = $SpriteDead
 
+onready var player := get_node("../../Player") # needs looking into...
+
 var speed: float = 0
+var direction: = Vector2(-1,0) # Move left by default
 var rotationRate: float = 0
 
 func _ready():
@@ -23,6 +26,7 @@ func _ready():
 	rotationRate = rand_range(minRotationRate, maxRotationRate)
 	spriteOpen.hide()
 	spriteDead.hide()
+	direction = (player.global_position - global_position).normalized()
 
 
 func _process(delta: float) -> void:
@@ -43,7 +47,8 @@ func _process(delta: float) -> void:
 	
 func _physics_process(delta: float) -> void:
 	rotation_degrees += rotationRate * delta
-	position.x -= speed * delta
+	global_position += direction * speed * delta
+	
 	
 func damage(amount: int):
 	life -= amount

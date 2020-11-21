@@ -1,13 +1,29 @@
 extends Node2D
 
 var plMeteor := preload("res://Meteor/Meteor.tscn")
+var score : int
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	randomize()
+	new_game()
+
+func game_over() -> void:
+	$ScoreTimer.stop()
+	$MobTimer.stop()
+	#get_tree().call_group("mobs", "queue_free")
+
+func new_game():
+	score = 0
+	$Player.start(Vector2(300,300))
+	$ScoreTimer.start()
 
 
+func _on_ScoreTimer_timeout() -> void:
+	score += 1
+	print(score)
 
 
 #func _on_MobTimer_timeout() -> void:
@@ -28,3 +44,6 @@ func _ready() -> void:
 ##	meteor.linear_velocity = meteor.linear_velocity.rotated(direction)
 #	add_child(meteor)
 
+
+func _on_Player_killed() -> void:
+	game_over()

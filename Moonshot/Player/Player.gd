@@ -97,7 +97,12 @@ func _physics_process(delta: float) -> void:
 	position.y = clamp(position.y, 0, viewRect.size.y - 75)
 	# Manually subtracting ground size to prevent flying through ground
 
-	
+
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
+
 func damage(amount): # Could implement damage types here, with modifiers
 	if invulnerabilityTimer.is_stopped():	
 		invulnerabilityTimer.start()
@@ -118,6 +123,7 @@ func _set_health(value):
 		if health == 0:
 			kill()
 			emit_signal("killed")
+			$CollisionShape2D.set_deferred("disabled", true)
 		else:
 			var missingLife: int = max_health - health
 			shipSprites[missingLife].visible = true

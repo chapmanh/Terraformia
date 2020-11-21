@@ -5,7 +5,7 @@
 
 [sub_resource type="CircleShape2D" id=1]
 
-[node name="Meteor" type="Area2D" groups=[
+[node name="Meteor2" type="Area2D" groups=[
 "damageable",
 "mobs",
 ]]

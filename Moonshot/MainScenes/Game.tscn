@@ -25,10 +25,10 @@ script = ExtResource( 4 )
 [node name="Backgrounds" type="Node2D" parent="."]
 
 [node name="Background_Distant" parent="Backgrounds" instance=ExtResource( 8 )]
+visible = false
 script = ExtResource( 9 )
 
 [node name="Background_Distant_Static" parent="Backgrounds" instance=ExtResource( 10 )]
-visible = false
 
 [node name="Background_3" parent="Backgrounds" instance=ExtResource( 7 )]
 

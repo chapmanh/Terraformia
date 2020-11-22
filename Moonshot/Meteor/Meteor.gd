@@ -21,6 +21,8 @@ onready var spriteDead = $SpriteDead
 var speed: float = 0
 var direction: = Vector2(-1,0) # Move left by default
 var rotationRate: float = 0
+
+# Needs taking out, moving back into EnemySpawn
 var lvl : int = 1
 
 func _ready():

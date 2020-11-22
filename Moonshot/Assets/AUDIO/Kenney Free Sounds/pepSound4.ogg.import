@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/pepSound4.ogg-2998042bdd06e84556a3b3b873e96111.oggstr"
+path="res://.import/pepSound4.ogg-8ab26cff580a0ea2ee7bc6a934044c38.oggstr"
 
 [deps]
 
-source_file="res://Assets/AUDIO/Kenny Free Sounds/pepSound4.ogg"
-dest_files=[ "res://.import/pepSound4.ogg-2998042bdd06e84556a3b3b873e96111.oggstr" ]
+source_file="res://Assets/AUDIO/Kenney Free Sounds/pepSound4.ogg"
+dest_files=[ "res://.import/pepSound4.ogg-8ab26cff580a0ea2ee7bc6a934044c38.oggstr" ]
 
 [params]
 

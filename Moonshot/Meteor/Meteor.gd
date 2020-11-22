@@ -1,6 +1,6 @@
 extends Area2D
-export var minSpeed: float = 10
-export var maxSpeed: float = 100
+export var minSpeed: float = 0.9
+export var maxSpeed: float = 1.1
 export var minRotationRate: float = 45
 export var maxRotationRate: float = -45
 export var life: int = 20
@@ -15,18 +15,23 @@ onready var spriteOpen = $SpriteOpen
 onready var spriteClosed = $SpriteClosed
 onready var spriteDead = $SpriteDead
 
-onready var player := get_node("../../Player") # needs looking into...
+# Player info (Simple Meteor doesnt aim)
+#onready var player := get_node("../../Player") # needs looking into...
 
 var speed: float = 0
 var direction: = Vector2(-1,0) # Move left by default
 var rotationRate: float = 0
+var lvl : int = 1
 
 func _ready():
-	speed = rand_range(minSpeed, maxSpeed)
+	speed *= rand_range(minSpeed, maxSpeed)
 	rotationRate = rand_range(minRotationRate, maxRotationRate)
 	spriteOpen.hide()
 	spriteDead.hide()
-	direction = (player.global_position - global_position).normalized()
+	if global_position.y < 0:
+		direction = Vector2(-1, 1).normalized()
+	
+	#direction = (player.global_position - global_position).normalized()
 
 
 func _process(delta: float) -> void:
@@ -49,6 +54,11 @@ func _physics_process(delta: float) -> void:
 	rotation_degrees += rotationRate * delta
 	global_position += direction * speed * delta
 	
+func lvl_up(spawnRateInc: float, speedInc: float):
+	
+	lvl += 1
+	
+	print(lvl)
 	
 func damage(amount: int):
 	life -= amount

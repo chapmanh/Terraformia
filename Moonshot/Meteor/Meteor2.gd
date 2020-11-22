@@ -48,8 +48,12 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	rotation_degrees += rotationRate * delta
 	global_position += direction * speed * delta
-	
-	
+
+
+func lvl_up(spawnRateInc: float, speedInc: float):
+	speed = speed * (1 + speedInc)
+
+
 func damage(amount: int):
 	life -= amount
 	if life <= 0:

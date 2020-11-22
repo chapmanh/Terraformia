@@ -24,7 +24,6 @@ script = ExtResource( 4 )
 [node name="MobTimer" type="Timer" parent="."]
 
 [node name="Backgrounds" type="Node2D" parent="."]
-visible = false
 
 [node name="Background_Distant" parent="Backgrounds" instance=ExtResource( 8 )]
 script = ExtResource( 9 )
@@ -40,7 +39,6 @@ visible = false
 visible = false
 
 [node name="Ground" parent="." instance=ExtResource( 11 )]
-visible = false
 position = Vector2( -1.07593, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -58,16 +56,22 @@ mouthTimer = 1.0
 [node name="Meteor" parent="EnemySpawn" instance=ExtResource( 1 )]
 position = Vector2( 726.336, 397.308 )
 
-[node name="EnemyGeneratorRight" type="Position2D" parent="EnemySpawn"]
+[node name="EnemyGenerator" type="Position2D" parent="EnemySpawn"]
 script = ExtResource( 12 )
 
-[node name="Timer" type="Timer" parent="EnemySpawn/EnemyGeneratorRight"]
-autostart = true
+[node name="EnemyGenerationTimer" type="Timer" parent="EnemySpawn/EnemyGenerator"]
+one_shot = true
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
+autoplay = true
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
-[connection signal="killed" from="Player" to="EnemySpawn/EnemyGeneratorRight" method="_on_Player_killed"]
 [connection signal="killed" from="Player" to="." method="_on_Player_killed"]
-[connection signal="create_enemy" from="EnemySpawn/EnemyGeneratorRight" to="EnemySpawn" method="_on_EnemyGenerator_create_enemy"]
-[connection signal="timeout" from="EnemySpawn/EnemyGeneratorRight/Timer" to="EnemySpawn/EnemyGeneratorRight" method="_on_Timer_timeout"]
+[connection signal="killed" from="Player" to="EnemySpawn/EnemyGenerator" method="_on_Player_killed"]
+[connection signal="create_enemy" from="EnemySpawn/EnemyGenerator" to="EnemySpawn" method="_on_EnemyGenerator_create_enemy"]
+[connection signal="timeout" from="EnemySpawn/EnemyGenerator/EnemyGenerationTimer" to="EnemySpawn/EnemyGenerator" method="_on_EnemyGenerationTimer_timeout"]
+[connection signal="timeout" from="LevelTimer" to="EnemySpawn/EnemyGenerator" method="_on_LevelTimer_timeout"]

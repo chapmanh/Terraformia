@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/laser9.ogg-4bfb8967d3529afbaa3315a341d6968d.oggstr"
+path="res://.import/laser9.ogg-44b9d83db3966f52fb3e2a449c247eb8.oggstr"
 
 [deps]
 
-source_file="res://Assets/AUDIO/Kenny Free Sounds/laser9.ogg"
-dest_files=[ "res://.import/laser9.ogg-4bfb8967d3529afbaa3315a341d6968d.oggstr" ]
+source_file="res://Assets/AUDIO/Kenney Free Sounds/laser9.ogg"
+dest_files=[ "res://.import/laser9.ogg-44b9d83db3966f52fb3e2a449c247eb8.oggstr" ]
 
 [params]
 

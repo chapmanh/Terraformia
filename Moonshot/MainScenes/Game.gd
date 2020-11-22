@@ -8,17 +8,28 @@ var score : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
+	
+	
+	# SHARER PARAMETERS ARE A PAIN TO FIND/CHANGE... 
+	#$Ground/ScrollingBackground.material.set_shader_param("Scroll Speed", 0.0)
+#	var ss = $Ground/ScrollingBackground.material.get_shader_param("Scroll Speed")
+#	print(ss)
 	new_game()
 
 func game_over() -> void:
 	$ScoreTimer.stop()
 	$MobTimer.stop()
 	#get_tree().call_group("mobs", "queue_free")
+	
+	# Stop meteors spawning, as doing so without player can break game
+	$EnemySpawn/EnemyGenerator/EnemyGenerationTimer.stop()
 
 func new_game():
 	score = 0
+	print("Level: ", $EnemySpawn/EnemyGenerator.lvl)
 	$Player.start(Vector2(300,300))
 	$ScoreTimer.start()
+	$EnemySpawn/EnemyGenerator/EnemyGenerationTimer.start()
 
 
 func _on_ScoreTimer_timeout() -> void:
@@ -47,3 +58,11 @@ func _on_ScoreTimer_timeout() -> void:
 
 func _on_Player_killed() -> void:
 	game_over()
+
+
+func _on_LevelTimer_timeout() -> void:
+	print('next level')
+	lvl_up(1000.0, 1000.0)
+
+func lvl_up(spawnRateInc: float, speedInc: float):
+	get_tree().call_group("mobs", "lvl_up", 0.5, 0.5)

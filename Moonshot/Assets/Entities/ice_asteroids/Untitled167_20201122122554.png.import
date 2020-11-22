@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/afterburner.png-1dec042a4fa1db340707abdf3ce248f4.stex"
+path="res://.import/Untitled167_20201122122554.png-8e15eaec049c1d18a064c2c581ccba60.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Enemies/afterburner.png"
-dest_files=[ "res://.import/afterburner.png-1dec042a4fa1db340707abdf3ce248f4.stex" ]
+source_file="res://Assets/Entities/ice_asteroids/Untitled167_20201122122554.png"
+dest_files=[ "res://.import/Untitled167_20201122122554.png-8e15eaec049c1d18a064c2c581ccba60.stex" ]
 
 [params]
 

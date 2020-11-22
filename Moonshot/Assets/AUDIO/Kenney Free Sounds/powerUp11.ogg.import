@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/powerUp11.ogg-1c735dd6d21779d5bceebe31b8c7a65b.oggstr"
+path="res://.import/powerUp11.ogg-19e188fec2760adbd194411bf7d9c160.oggstr"
 
 [deps]
 
-source_file="res://Assets/AUDIO/Kenny Free Sounds/powerUp11.ogg"
-dest_files=[ "res://.import/powerUp11.ogg-1c735dd6d21779d5bceebe31b8c7a65b.oggstr" ]
+source_file="res://Assets/AUDIO/Kenney Free Sounds/powerUp11.ogg"
+dest_files=[ "res://.import/powerUp11.ogg-19e188fec2760adbd194411bf7d9c160.oggstr" ]
 
 [params]
 

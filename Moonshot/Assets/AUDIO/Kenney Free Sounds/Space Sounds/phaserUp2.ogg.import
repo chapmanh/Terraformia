@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/phaserUp2.ogg-441f3a7f562c64ab38a0595f127f4585.oggstr"
+path="res://.import/phaserUp2.ogg-88f3cae63f6f3059127cd274f86900c6.oggstr"
 
 [deps]
 
-source_file="res://Assets/AUDIO/Kenney Free Sounds/phaserUp2.ogg"
-dest_files=[ "res://.import/phaserUp2.ogg-441f3a7f562c64ab38a0595f127f4585.oggstr" ]
+source_file="res://Assets/AUDIO/Kenney Free Sounds/Space Sounds/phaserUp2.ogg"
+dest_files=[ "res://.import/phaserUp2.ogg-88f3cae63f6f3059127cd274f86900c6.oggstr" ]
 
 [params]
 

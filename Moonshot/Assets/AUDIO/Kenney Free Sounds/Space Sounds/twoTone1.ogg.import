@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/twoTone1.ogg-f9f45bea14628fd6dbb88d6add86d16e.oggstr"
+path="res://.import/twoTone1.ogg-c362df296cad333926e53c0e7e11da91.oggstr"
 
 [deps]
 
-source_file="res://Assets/AUDIO/Kenney Free Sounds/twoTone1.ogg"
-dest_files=[ "res://.import/twoTone1.ogg-f9f45bea14628fd6dbb88d6add86d16e.oggstr" ]
+source_file="res://Assets/AUDIO/Kenney Free Sounds/Space Sounds/twoTone1.ogg"
+dest_files=[ "res://.import/twoTone1.ogg-c362df296cad333926e53c0e7e11da91.oggstr" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/zapThreeToneDown.ogg-136a3b362aced2f54cfd463d755882c1.oggstr"
+path="res://.import/zapThreeToneDown.ogg-b397671f4b279d484ca0f10321eeb406.oggstr"
 
 [deps]
 
-source_file="res://Assets/AUDIO/Kenney Free Sounds/zapThreeToneDown.ogg"
-dest_files=[ "res://.import/zapThreeToneDown.ogg-136a3b362aced2f54cfd463d755882c1.oggstr" ]
+source_file="res://Assets/AUDIO/Kenney Free Sounds/Space Sounds/zapThreeToneDown.ogg"
+dest_files=[ "res://.import/zapThreeToneDown.ogg-b397671f4b279d484ca0f10321eeb406.oggstr" ]
 
 [params]
 

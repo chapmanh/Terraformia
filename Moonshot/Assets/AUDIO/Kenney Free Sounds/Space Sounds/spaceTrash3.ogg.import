@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/spaceTrash3.ogg-13f00b303af39612dfe68ee3b1f1e6c1.oggstr"
+path="res://.import/spaceTrash3.ogg-96aa100ae193376e0df7326556e9aa16.oggstr"
 
 [deps]
 
-source_file="res://Assets/AUDIO/Kenney Free Sounds/spaceTrash3.ogg"
-dest_files=[ "res://.import/spaceTrash3.ogg-13f00b303af39612dfe68ee3b1f1e6c1.oggstr" ]
+source_file="res://Assets/AUDIO/Kenney Free Sounds/Space Sounds/spaceTrash3.ogg"
+dest_files=[ "res://.import/spaceTrash3.ogg-96aa100ae193376e0df7326556e9aa16.oggstr" ]
 
 [params]
 

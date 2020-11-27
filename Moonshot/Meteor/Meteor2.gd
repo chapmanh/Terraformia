@@ -1,9 +1,9 @@
 extends Area2D
-export var minSpeed: float = 10
-export var maxSpeed: float = 100
+export var minSpeed: float = 1.2
+export var maxSpeed: float = 1.8
 export var minRotationRate: float = 45
 export var maxRotationRate: float = -45
-export var life: int = 20
+export var life: int = 1
 export var deathTime = 5
 
 # For incredibly janky animation, PLEASE REPLACE WITH AnimationSprite
@@ -22,11 +22,12 @@ var direction: = Vector2(-1,0) # Move left by default
 var rotationRate: float = 0
 
 func _ready():
-	speed = rand_range(100, 250)
+	speed *= rand_range(minSpeed, maxSpeed)
 	rotationRate = 0
 	spriteOpen.hide()
 	spriteDead.hide()
-	#direction = (player.global_position - global_position).normalized()
+	direction = (player.global_position - global_position).normalized()
+	rotation = direction.angle() - PI
 
 
 func _process(delta: float) -> void:
@@ -44,6 +45,7 @@ func _process(delta: float) -> void:
 	
 	mouthTimerCurrent -= delta
 	#print(mouthTimerCurrent)
+	
 	
 func _physics_process(delta: float) -> void:
 	rotation_degrees += rotationRate * delta
@@ -73,3 +75,8 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 # Dead for a while = Remove
 func _on_DeathTimer_timeout() -> void:
 	queue_free()
+
+
+func _on_Meteor2_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy_floor"):
+		die()

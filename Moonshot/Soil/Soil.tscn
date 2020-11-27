@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Entities/Soil/soil.png" type="Texture" id=1]
+[ext_resource path="res://Soil/Soil.gd" type="Script" id=2]
+
+[node name="Soil" type="Area2D" groups=[
+"fertile",
+"ground",
+]]
+collision_layer = 32
+collision_mask = 0
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+offset = Vector2( 0, -32 )
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
+position = Vector2( 0, 2 )
+polygon = PoolVector2Array( -24, -2, -14.1362, -6.47845, -4.24607, -9.20182, 9.37078, -8.91515, 17.5409, -6.04844, 25.9977, -1.93949, 21.3632, 14, -16, 14 )

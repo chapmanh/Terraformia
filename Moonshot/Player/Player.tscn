@@ -71,6 +71,7 @@ tracks/1/keys = {
 collision_mask = 10
 script = ExtResource( 2 )
 speed = 200.0
+primaryFireDelay = 0.3
 
 [node name="Sprites" type="Node2D" parent="."]
 

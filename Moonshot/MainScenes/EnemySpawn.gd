@@ -3,6 +3,7 @@ extends Node2D
 # Preload any mob scenes which can spawn
 var meteor := preload("res://Meteor/Meteor.tscn")
 var meteor2 := preload("res://Meteor/Meteor2.tscn")
+var soil := preload("res://Soil/Soil.tscn")
 
 var enemies := [meteor, meteor2]
 
@@ -40,12 +41,12 @@ func _on_EnemyGenerationTimer_timeout() -> void:
 	spawnTop = Vector2(rand_range(512, 1050), -20)
 	spawnAir = [spawnRight, spawnTop]
 	
-	# Enemy selection logic (HARD CODED CURRENTLY)
-	var enemy
+	# soil gen (10% chance)
 	if randi() % 10 == 0:
-		enemy = enemies[1]
-	else:
-		enemy = enemies[0]
+		_create_soil(soil, Vector2(1050, 580))
+	
+	# enemy select
+	var enemy = _enemy_select(enemies)
 	
 	# Create the enemy at a random position from the possible positions
 	_create_enemy(enemy, spawnAir[randi() % len(spawnAir)], 100 * lvl)
@@ -58,3 +59,16 @@ func _create_enemy(enemy, location, speed) -> void:
 	enemy_instance.global_position = location
 	enemy_instance.speed = speed
 	add_child(enemy_instance)
+	
+func _create_soil(soil, location):
+	var soil_instance = soil.instance()
+	soil_instance.global_position = location
+	add_child(soil_instance)
+	
+func _enemy_select(enemies):
+	var enemy
+	if randi() % 10 == 0:
+		enemy = enemies[1]
+	else:
+		enemy = enemies[0]
+	return enemy

@@ -29,7 +29,7 @@ func _ready():
 	if global_position.y < 0:
 		direction = Vector2(-1, 1).normalized()
 		rotation = direction.angle() - PI
-	#direction = (player.global_position - global_position).normalized()
+	direction = (player.global_position - global_position).normalized()
 
 
 func _process(delta: float) -> void:
@@ -47,6 +47,7 @@ func _process(delta: float) -> void:
 	
 	mouthTimerCurrent -= delta
 	#print(mouthTimerCurrent)
+	
 	
 func _physics_process(delta: float) -> void:
 	rotation_degrees += rotationRate * delta
@@ -76,3 +77,8 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 # Dead for a while = Remove
 func _on_DeathTimer_timeout() -> void:
 	queue_free()
+
+
+func _on_Meteor2_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy_floor"):
+		die()

@@ -52,6 +52,7 @@ func _process(delta: float) -> void:
 	mouthTimerCurrent -= delta
 	#print(mouthTimerCurrent)
 	
+	
 func _physics_process(delta: float) -> void:
 	rotation_degrees += rotationRate * delta
 	global_position += direction * speed * delta
@@ -81,3 +82,8 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 # Dead for a while = Remove
 func _on_DeathTimer_timeout() -> void:
 	queue_free()
+
+
+func _on_Meteor_area_entered(area: Area2D) -> void:
+	if area.is_in_group("enemy_floor"):
+		die()

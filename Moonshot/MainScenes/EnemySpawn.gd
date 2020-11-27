@@ -4,6 +4,8 @@ extends Node2D
 var meteor := preload("res://Meteor/Meteor.tscn")
 var meteor2 := preload("res://Meteor/Meteor2.tscn")
 
+var enemies := [meteor, meteor2]
+
 onready var enemyGenTimer := $EnemyGenerator/EnemyGenerationTimer
 onready var enemyLocation := $EnemyGenerator
 
@@ -22,6 +24,8 @@ var spawnRight := Vector2(1050, rand_range(0, 450))
 var spawnTop := Vector2(rand_range(512, 1050), -20)
 var spawnAir := [spawnRight, spawnTop]
 
+var spawnGround := Vector2(1050, 550)
+
 func _ready() -> void:
 	pass
 
@@ -37,7 +41,11 @@ func _on_EnemyGenerationTimer_timeout() -> void:
 	spawnAir = [spawnRight, spawnTop]
 	
 	# Enemy selection logic (HARD CODED CURRENTLY)
-	var enemy := meteor
+	var enemy
+	if randi() % 10 == 0:
+		enemy = enemies[1]
+	else:
+		enemy = enemies[0]
 	
 	# Create the enemy at a random position from the possible positions
 	_create_enemy(enemy, spawnAir[randi() % len(spawnAir)], 100 * lvl)

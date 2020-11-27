@@ -32,7 +32,7 @@ func _ready():
 	spriteDead.hide()
 	if global_position.y < 0:
 		direction = Vector2(-1, 1).normalized()
-	
+		rotation = direction.angle() - PI
 	#direction = (player.global_position - global_position).normalized()
 
 

@@ -1,6 +1,6 @@
 extends Area2D
-export var minSpeed: float = 10
-export var maxSpeed: float = 100
+export var minSpeed: float = 1.8
+export var maxSpeed: float = 2.2
 export var minRotationRate: float = 45
 export var maxRotationRate: float = -45
 export var life: int = 20
@@ -22,10 +22,13 @@ var direction: = Vector2(-1,0) # Move left by default
 var rotationRate: float = 0
 
 func _ready():
-	speed = rand_range(100, 250)
+	speed *= rand_range(minSpeed, maxSpeed)
 	rotationRate = 0
 	spriteOpen.hide()
 	spriteDead.hide()
+	if global_position.y < 0:
+		direction = Vector2(-1, 1).normalized()
+		rotation = direction.angle() - PI
 	#direction = (player.global_position - global_position).normalized()
 
 

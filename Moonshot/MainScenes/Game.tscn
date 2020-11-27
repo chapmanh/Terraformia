@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Meteor/Meteor.tscn" type="PackedScene" id=1]
 [ext_resource path="res://FGBG/Background/Background_1.tscn" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://FGBG/Background/Ground.tscn" type="PackedScene" id=11]
 [ext_resource path="res://MainScenes/EnemySpawn.gd" type="Script" id=13]
 [ext_resource path="res://Meteor/Meteor2.tscn" type="PackedScene" id=14]
-[ext_resource path="res://Meteor/Meteor2.gd" type="Script" id=15]
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -47,14 +46,6 @@ position = Vector2( 571.759, 442.818 )
 [node name="EnemySpawn" type="Node2D" parent="."]
 script = ExtResource( 13 )
 
-[node name="Meteor2" parent="EnemySpawn" instance=ExtResource( 14 )]
-position = Vector2( 802.415, 193.935 )
-script = ExtResource( 15 )
-minSpeed = 0.9
-maxSpeed = 1.1
-life = 20
-mouthTimer = 1.0
-
 [node name="Meteor" parent="EnemySpawn" instance=ExtResource( 1 )]
 position = Vector2( 726.336, 397.308 )
 
@@ -69,6 +60,9 @@ stream = ExtResource( 5 )
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="Meteor2" parent="." instance=ExtResource( 14 )]
+position = Vector2( 802.524, 175.256 )
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="killed" from="Player" to="." method="_on_Player_killed"]
 [connection signal="timeout" from="EnemySpawn/EnemyGenerator/EnemyGenerationTimer" to="EnemySpawn" method="_on_EnemyGenerationTimer_timeout"]

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/PLANT GROWTH drop_004.wav-ecfa74f84cc4d46cc0e0621e30793f67.sample"
+
+[deps]
+
+source_file="res://Assets/AUDIO/READY-TO-USE sounds/PLANT GROWTH drop_004.wav"
+dest_files=[ "res://.import/PLANT GROWTH drop_004.wav-ecfa74f84cc4d46cc0e0621e30793f67.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

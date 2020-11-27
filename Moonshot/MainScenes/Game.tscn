@@ -36,7 +36,6 @@ visible = false
 visible = false
 
 [node name="Ground" parent="." instance=ExtResource( 11 )]
-visible = false
 position = Vector2( -1.07593, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]

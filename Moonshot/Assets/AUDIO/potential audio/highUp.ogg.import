@@ -2,12 +2,12 @@
 
 importer="ogg_vorbis"
 type="AudioStreamOGGVorbis"
-path="res://.import/highUp.ogg-2f81a070102806239a8c542de3850222.oggstr"
+path="res://.import/highUp.ogg-073254cac2a422f3a4eb8d681207ebbd.oggstr"
 
 [deps]
 
-source_file="res://Assets/AUDIO/Kenney Free Sounds/potential sounds to use/highUp.ogg"
-dest_files=[ "res://.import/highUp.ogg-2f81a070102806239a8c542de3850222.oggstr" ]
+source_file="res://Assets/AUDIO/potential audio/highUp.ogg"
+dest_files=[ "res://.import/highUp.ogg-073254cac2a422f3a4eb8d681207ebbd.oggstr" ]
 
 [params]
 

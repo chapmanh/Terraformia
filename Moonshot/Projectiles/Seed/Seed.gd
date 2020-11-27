@@ -4,6 +4,8 @@ onready var animationPlayer = $AnimationPlayer
 onready var airTimer = $AirTimer
 onready var sprite = $Sprite
 onready var collider = $CollisionShape2D
+onready var audioShrivel = $AudioShrivel
+onready var audioGrow = $AudioGrow
 
 export var speed: float = 500
 export var drag: float = 240
@@ -24,12 +26,21 @@ func _on_Seed_area_entered(area: Area2D) -> void:
 	if area.is_in_group("ground"):
 		speed = 0
 		if area.is_in_group("fertile") and not airTimer.is_stopped():
-			animationPlayer.play("grow")
-			airTimer.paused = true # Kill it, so no timeout trigger
+			_grow()
 		else:
-			animationPlayer.play("shrivel")
-			airTimer.queue_free() # Kill it, so no timeout trigger
+			_shrivel()
 
 
 func _on_AirTimer_timeout() -> void:
-	animationPlayer.play("shrivel")
+	_shrivel()
+	
+func _shrivel():
+	if not animationPlayer.is_playing() and not audioShrivel.is_playing():
+		animationPlayer.play("shrivel")
+		audioShrivel.play()
+
+
+func _grow():
+	animationPlayer.play("grow")
+	audioGrow.play()
+	airTimer.paused = true

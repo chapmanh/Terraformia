@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/MENU SELECT glass_006.ogg-4e7b09a074ac331f17022ca6f43c2a07.oggstr"
+
+[deps]
+
+source_file="res://Assets/AUDIO/potential audio/MENU SELECT glass_006.ogg"
+dest_files=[ "res://.import/MENU SELECT glass_006.ogg-4e7b09a074ac331f17022ca6f43c2a07.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

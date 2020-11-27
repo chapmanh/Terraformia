@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SEED FREEZE fall_through_ice.wav-57537510d9a1f3d7fafb099d004ae91f.sample"
+
+[deps]
+
+source_file="res://Assets/AUDIO/READY-TO-USE sounds/SEED FREEZE fall_through_ice.wav"
+dest_files=[ "res://.import/SEED FREEZE fall_through_ice.wav-57537510d9a1f3d7fafb099d004ae91f.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

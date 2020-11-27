@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/exploring sounds.wav-68b20852a69f89fa9ed9ebc36597eb59.sample"
+path="res://.import/exploring sounds.wav-16f37eebf4f87d9e1d422fadfb8ade0a.sample"
 
 [deps]
 
-source_file="res://Assets/AUDIO/Music/exploring sounds.wav"
-dest_files=[ "res://.import/exploring sounds.wav-68b20852a69f89fa9ed9ebc36597eb59.sample" ]
+source_file="res://Assets/AUDIO/READY-TO-USE music/exploring sounds.wav"
+dest_files=[ "res://.import/exploring sounds.wav-16f37eebf4f87d9e1d422fadfb8ade0a.sample" ]
 
 [params]
 

@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/dalpea naivas remix LOOP.wav-81907e25deb2f8d72d9f160197cfc73b.sample"
+path="res://.import/dalpea naivas remix LOOP.wav-187d6850389175500ac1f3f82bca8d70.sample"
 
 [deps]
 
-source_file="res://Assets/AUDIO/Music/dalpea naivas remix LOOP.wav"
-dest_files=[ "res://.import/dalpea naivas remix LOOP.wav-81907e25deb2f8d72d9f160197cfc73b.sample" ]
+source_file="res://Assets/AUDIO/READY-TO-USE music/dalpea naivas remix LOOP.wav"
+dest_files=[ "res://.import/dalpea naivas remix LOOP.wav-187d6850389175500ac1f3f82bca8d70.sample" ]
 
 [params]
 

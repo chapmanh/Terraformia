@@ -42,7 +42,7 @@ func _on_EnemyGenerationTimer_timeout() -> void:
 	spawnAir = [spawnRight, spawnTop]
 	
 	# soil gen (10% chance)
-	if randi() % 10 == 0:
+	if randi() % 10 >= 5:
 		_create_soil(soil, Vector2(1050, 580))
 	
 	# enemy select

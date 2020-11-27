@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GROWTH drop_004.ogg-c0894db31038a38ff3996bf957fede5e.oggstr"
+
+[deps]
+
+source_file="res://Assets/AUDIO/potential audio/GROWTH drop_004.ogg"
+dest_files=[ "res://.import/GROWTH drop_004.ogg-c0894db31038a38ff3996bf957fede5e.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

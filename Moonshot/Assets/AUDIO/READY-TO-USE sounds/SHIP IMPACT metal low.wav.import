@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SHIP IMPACT metal low.wav-4a623eb9daaec18e37270a15bed0f555.sample"
+
+[deps]
+
+source_file="res://Assets/AUDIO/READY-TO-USE sounds/SHIP IMPACT metal low.wav"
+dest_files=[ "res://.import/SHIP IMPACT metal low.wav-4a623eb9daaec18e37270a15bed0f555.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

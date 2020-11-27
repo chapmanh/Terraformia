@@ -49,7 +49,7 @@ func _on_EnemyGenerationTimer_timeout() -> void:
 	var enemy = _enemy_select(enemies)
 	
 	# Create the enemy at a random position from the possible positions
-	_create_enemy(enemy, spawnAir[randi() % len(spawnAir)], 100 * lvl)
+	_create_enemy(enemy, spawnAir[randi() % len(spawnAir)], 50 * lvl)
 	
 	# Restart EnemyGenerationTimer (currently with default time)
 	enemyGenTimer.start()

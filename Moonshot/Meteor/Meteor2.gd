@@ -1,9 +1,9 @@
 extends Area2D
-export var minSpeed: float = 1.8
-export var maxSpeed: float = 2.2
+export var minSpeed: float = 1.2
+export var maxSpeed: float = 1.8
 export var minRotationRate: float = 45
 export var maxRotationRate: float = -45
-export var life: int = 20
+export var life: int = 1
 export var deathTime = 5
 
 # For incredibly janky animation, PLEASE REPLACE WITH AnimationSprite
@@ -26,10 +26,8 @@ func _ready():
 	rotationRate = 0
 	spriteOpen.hide()
 	spriteDead.hide()
-	if global_position.y < 0:
-		direction = Vector2(-1, 1).normalized()
-		rotation = direction.angle() - PI
 	direction = (player.global_position - global_position).normalized()
+	rotation = direction.angle() - PI
 
 
 func _process(delta: float) -> void:

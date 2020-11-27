@@ -1,5 +1,7 @@
 extends Node2D
 
+onready var scoreLabel = $ScoreLabel
+
 var plMeteor := preload("res://Meteor/Meteor.tscn")
 var score : int
 
@@ -37,7 +39,8 @@ func new_game():
 
 func _on_ScoreTimer_timeout() -> void:
 	score += 1
-	print(score)
+	scoreLabel.text = str(score)
+	#print(score)
 
 
 func _on_Player_killed() -> void:

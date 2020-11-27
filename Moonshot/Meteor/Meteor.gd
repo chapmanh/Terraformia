@@ -3,7 +3,7 @@ export var minSpeed: float = 0.9
 export var maxSpeed: float = 1.1
 export var minRotationRate: float = 45
 export var maxRotationRate: float = -45
-export var life: int = 20
+export var life: int = 3
 export var deathTime = 5
 
 # For incredibly janky animation, PLEASE REPLACE WITH AnimationSprite

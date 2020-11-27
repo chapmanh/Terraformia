@@ -36,6 +36,7 @@ visible = false
 visible = false
 
 [node name="Ground" parent="." instance=ExtResource( 11 )]
+visible = false
 position = Vector2( -1.07593, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
@@ -55,6 +56,14 @@ stream = ExtResource( 5 )
 [node name="LevelTimer" type="Timer" parent="."]
 wait_time = 10.0
 autostart = true
+
+[node name="ScoreLabel" type="Label" parent="."]
+anchor_right = 1.0
+margin_right = 78.0
+margin_bottom = 78.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="killed" from="Player" to="." method="_on_Player_killed"]
 [connection signal="timeout" from="EnemySpawn/EnemyGenerator/EnemyGenerationTimer" to="EnemySpawn" method="_on_EnemyGenerationTimer_timeout"]

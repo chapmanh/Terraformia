@@ -16,6 +16,9 @@ onready var secondaryDelayTimer := $SecondaryDelayTimer
 
 onready var invulnerabilityTimer := $InvulnerabilityTimer
 onready var effectAnimation := $EffectAnimation
+onready var audioDamage1 := $AudioDamage1
+onready var audioDamage2 := $AudioDamage2
+
 
 # Ship Damage Sprites
 onready var shipSprites := [
@@ -109,6 +112,10 @@ func damage(amount): # Could implement damage types here, with modifiers
 		_set_health(health - amount)
 		effectAnimation.play("damage")
 		effectAnimation.queue("flash")
+		if randi() % 2 == 0:
+			audioDamage1.play()
+		else:
+			audioDamage2.play()
 		
 		
 	

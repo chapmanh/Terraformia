@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var HighScoreLabel = $ScoreLabel
+onready var highScoreLabel = find_node("highScoreLabel")
 onready var highScores = $HighScores
 
 var plMeteor := preload("res://Meteor/Meteor.tscn")
@@ -61,4 +61,4 @@ func lvl_up(spawnRateInc: float, speedInc: float):
 	
 func score_inc(n):
 	score += n
-	HighScoreLabel.text = str(score)
+	highScoreLabel.text = str(score)

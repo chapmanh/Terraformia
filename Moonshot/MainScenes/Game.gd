@@ -61,4 +61,4 @@ func lvl_up(spawnRateInc: float, speedInc: float):
 	
 func score_inc(n):
 	score += n
-	scoreLabel.text = str(score)
+	HighScoreLabel.text = str(score)

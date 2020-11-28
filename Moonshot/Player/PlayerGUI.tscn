@@ -1,11 +1,121 @@
-[gd_scene format=2]
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Assets/UI/label_HP_bg.png" type="Texture" id=1]
+[ext_resource path="res://Assets/UI/hp_counter_icon_50.png" type="Texture" id=2]
+[ext_resource path="res://Assets/UI/PressStart2P-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/UI/hp_bar_full.png" type="Texture" id=4]
+[ext_resource path="res://Assets/UI/hp_bar_empty.png" type="Texture" id=5]
+[ext_resource path="res://Assets/UI/highscore_counter_icon_50.png" type="Texture" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 14
+extra_spacing_bottom = -4
+font_data = ExtResource( 3 )
 
 [node name="GUI" type="MarginContainer"]
 anchor_right = 1.0
-margin_left = 20.0
+margin_left = 10.0
 margin_top = 20.0
-margin_right = 20.0
+margin_right = -20.0
 margin_bottom = 20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_right = 994.0
+margin_bottom = 53.0
+
+[node name="Bars" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 890.0
+margin_bottom = 53.0
+size_flags_horizontal = 3
+
+[node name="Bar" type="HBoxContainer" parent="HBoxContainer/Bars"]
+margin_right = 890.0
+margin_bottom = 53.0
+
+[node name="Count" type="MarginContainer" parent="HBoxContainer/Bars/Bar"]
+margin_right = 100.0
+margin_bottom = 53.0
+
+[node name="Background" type="NinePatchRect" parent="HBoxContainer/Bars/Bar/Count"]
+margin_right = 100.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 100, 40 )
+texture = ExtResource( 1 )
+
+[node name="Title" type="TextureRect" parent="HBoxContainer/Bars/Bar/Count/Background"]
+margin_left = 7.0
+margin_top = 6.0
+margin_right = 57.0
+margin_bottom = 56.0
+rect_scale = Vector2( 0.8, 0.8 )
+texture = ExtResource( 2 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HPLabel" type="Label" parent="HBoxContainer/Bars/Bar/Count/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 49.0
+margin_right = -5.00001
+custom_fonts/font = SubResource( 1 )
+text = "10"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gauge" type="TextureProgress" parent="HBoxContainer/Bars/Bar"]
+margin_left = 104.0
+margin_right = 500.0
+margin_bottom = 53.0
+value = 50.0
+texture_under = ExtResource( 5 )
+texture_progress = ExtResource( 4 )
+
+[node name="Counters" type="HBoxContainer" parent="HBoxContainer"]
+margin_left = 894.0
+margin_right = 994.0
+margin_bottom = 53.0
+
+[node name="High Score Counter" type="MarginContainer" parent="HBoxContainer/Counters"]
+margin_right = 100.0
+margin_bottom = 53.0
+
+[node name="Background" type="NinePatchRect" parent="HBoxContainer/Counters/High Score Counter"]
+margin_right = 100.0
+margin_bottom = 53.0
+rect_min_size = Vector2( 100, 40 )
+texture = ExtResource( 1 )
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer/Counters/High Score Counter/Background"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -57.0
+margin_top = -26.5
+margin_right = -1.00001
+margin_bottom = 26.5
+texture = ExtResource( 6 )
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HighScoreLabel" type="Label" parent="HBoxContainer/Counters/High Score Counter/Background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -60.0
+margin_bottom = -1.0
+custom_fonts/font = SubResource( 1 )
+text = "10"
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": false
 }

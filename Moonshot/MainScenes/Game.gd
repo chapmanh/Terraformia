@@ -7,6 +7,8 @@ var plMeteor := preload("res://Meteor/Meteor.tscn")
 var score : int = 0
 var scoreActive: bool = false
 
+var playerName: String = "Player"
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
@@ -33,6 +35,7 @@ func game_over() -> void:
 	$LevelTimer.stop()
 	
 	# Display scores
+	highScores.newAttempt([playerName, score])
 	highScores.visible = true
 	$HighScores/APHighScores.play("fadeIn")
 	

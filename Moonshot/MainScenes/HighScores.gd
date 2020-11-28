@@ -5,10 +5,10 @@ onready var labelScores = $ScoreBoard/VBoxContainer/HBoxContainer/LabelScores
 
 var scoreData: Array = [
 	1000,
-	900,
-	800,
-	700,
-	550,
+	750,
+	600,
+	400,
+	250,
 ]
 
 var nameData: Array = [

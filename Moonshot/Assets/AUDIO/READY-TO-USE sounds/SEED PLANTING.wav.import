@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/SEED PLANTING.wav-f82d5b3c02d7807e5a6d19a849a514dc.sample"
+
+[deps]
+
+source_file="res://Assets/AUDIO/READY-TO-USE sounds/SEED PLANTING.wav"
+dest_files=[ "res://.import/SEED PLANTING.wav-f82d5b3c02d7807e5a6d19a849a514dc.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

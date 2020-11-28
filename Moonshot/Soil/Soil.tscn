@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Entities/Soil/soil.png" type="Texture" id=1]
 [ext_resource path="res://Soil/Soil.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 25.3589, 2.86116 )
 
 [node name="Soil" type="Area2D" groups=[
 "fertile",
@@ -12,9 +15,9 @@ collision_mask = 0
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, -3.49843 )
 texture = ExtResource( 1 )
-offset = Vector2( 0, -32 )
 
-[node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
-position = Vector2( 0, 2 )
-polygon = PoolVector2Array( -26.272, -2.99067, -14.1362, -6.47845, -4.24623, -7.81628, 9.17947, -7.52961, 17.5409, -6.04844, 29.2464, -2.13066, 21.3632, 14, -16, 14 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -0.26503 )
+shape = SubResource( 1 )

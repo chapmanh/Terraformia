@@ -38,9 +38,7 @@ func new_game():
 
 
 func _on_ScoreTimer_timeout() -> void:
-	score += 1
-	scoreLabel.text = str(score)
-	#print(score)
+	score_inc(1)
 
 
 func _on_Player_killed() -> void:
@@ -53,3 +51,7 @@ func _on_LevelTimer_timeout() -> void:
 
 func lvl_up(spawnRateInc: float, speedInc: float):
 	get_tree().call_group("mobs", "lvl_up", 0.5, 0.5)
+	
+func score_inc(n):
+	score += n
+	scoreLabel.text = str(score)

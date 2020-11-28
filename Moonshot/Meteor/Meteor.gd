@@ -15,8 +15,7 @@ onready var spriteOpen = $SpriteOpen
 onready var spriteClosed = $SpriteClosed
 onready var spriteDead = $SpriteDead
 
-# Player info (Simple Meteor doesnt aim)
-#onready var player := get_node("../../Player") # needs looking into...
+onready var game = get_tree().current_scene
 
 var speed: float = 0
 var direction: = Vector2(-1,0) # Move left by default
@@ -25,7 +24,12 @@ var rotationRate: float = 0
 # Needs taking out, moving back into EnemySpawn
 var lvl : int = 1
 
+signal killed
+
 func _ready():
+#	printt("Viewport", get_viewport(), get_tree().root) # Game's viewport.
+#	printt("Current Scene", get_tree().current_scene) # Active scene root.
+#	printt("Local Scene", get_local_scene_root(self)) # The nearest TSCN root.
 	speed *= rand_range(minSpeed, maxSpeed)
 	rotationRate = rand_range(minRotationRate, maxRotationRate)
 	spriteOpen.hide()
@@ -57,6 +61,12 @@ func _physics_process(delta: float) -> void:
 	rotation_degrees += rotationRate * delta
 	global_position += direction * speed * delta
 	
+	
+func get_local_scene_root(p_node : Node) -> Node:
+	while(p_node and not p_node.filename):
+		p_node = p_node.get_parent()
+	return p_node as Node
+	
 func lvl_up(spawnRateInc: float, speedInc: float):
 	
 	lvl += 1
@@ -72,6 +82,7 @@ func die():
 	spriteClosed.hide()
 	spriteOpen.hide()
 	spriteDead.show()
+	game.score_inc(10)
 	$CollisionPolygon2D.set_deferred("disabled", true)
 	$DeathTimer.start()
 

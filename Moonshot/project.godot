@@ -15,7 +15,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="GameJam2020"
+config/name="Terraformia [Github]"
 run/main_scene="res://MainScenes/Game.tscn"
 config/icon="res://icon.png"
 

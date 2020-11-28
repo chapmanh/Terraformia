@@ -33,7 +33,7 @@ func _ready() -> void:
 
 # Given the current board, place [attemptName, attemptScore] inside
 func newAttempt(attempt):
-	print("Updating board...")
+#	print("Updating board...")
 	var names: Array = board[0]
 	var attemptName: String = attempt[0]
 	
@@ -42,7 +42,7 @@ func newAttempt(attempt):
 	
 	# move from bottom of board up
 	for i in range(len(scores)):
-		print(i)
+#		print(i)
 		if attemptScore >= scores[i]:
 			names.insert(i, attemptName)
 			scores.insert(i, attemptScore)

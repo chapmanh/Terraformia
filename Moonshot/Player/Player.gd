@@ -16,8 +16,10 @@ onready var secondaryDelayTimer := $SecondaryDelayTimer
 
 onready var invulnerabilityTimer := $InvulnerabilityTimer
 onready var effectAnimation := $EffectAnimation
+
 onready var audioDamage1 := $AudioDamage1
 onready var audioDamage2 := $AudioDamage2
+onready var audioPrimaryFire := $AudioPrimaryFire
 
 
 # Ship Damage Sprites
@@ -58,6 +60,7 @@ func _process(delta):
 	# Check if shooting
 	if Input.is_action_pressed("game_fire_primary") and primaryDelayTimer.is_stopped():
 		primaryDelayTimer.start(primaryFireDelay)
+		audioPrimaryFire.play()
 		for child in primaryPositions.get_children():
 			var bullet = plBullet.instance()
 			bullet.global_position = child.global_position

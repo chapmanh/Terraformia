@@ -4,12 +4,13 @@
 [ext_resource path="res://Soil/Soil.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 25.3589, 2.86116 )
+extents = Vector2( 25.3589, 2.64918 )
 
 [node name="Soil" type="Area2D" groups=[
 "fertile",
 "ground",
 ]]
+position = Vector2( 0, -3.12738 )
 collision_layer = 32
 collision_mask = 0
 script = ExtResource( 2 )

@@ -70,6 +70,7 @@ func die(n):
 	spriteDead.show()
 	game.score_inc(n)
 	$CollisionPolygon2D.set_deferred("disabled", true)
+	$AudioDeath.play()
 	$DeathTimer.start()
 
 # Leave screen = Remove

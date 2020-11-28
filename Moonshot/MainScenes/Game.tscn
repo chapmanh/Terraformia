@@ -55,6 +55,14 @@ script = ExtResource( 4 )
 
 [node name="MobTimer" type="Timer" parent="."]
 
+[node name="GameWaitTimer" type="Timer" parent="."]
+wait_time = 7.0
+one_shot = true
+
+[node name="LevelTimer" type="Timer" parent="."]
+wait_time = 10.0
+autostart = true
+
 [node name="Backgrounds" type="Node2D" parent="."]
 
 [node name="Background_Distant" parent="Backgrounds" instance=ExtResource( 8 )]
@@ -87,12 +95,9 @@ anims/fadeOut = SubResource( 2 )
 
 [node name="EnemySpawn" parent="." instance=ExtResource( 13 )]
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioBGM" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
-
-[node name="LevelTimer" type="Timer" parent="."]
-wait_time = 10.0
-autostart = true
+volume_db = -10.0
 
 [node name="GUI" parent="." instance=ExtResource( 12 )]
 margin_right = 614.0
@@ -112,6 +117,8 @@ margin_right = 100.0
 margin_left = 104.0
 margin_right = 204.0
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
+[connection signal="timeout" from="GameWaitTimer" to="." method="_on_GameWaitTimer_timeout"]
+[connection signal="timeout" from="LevelTimer" to="EnemySpawn" method="_on_LevelTimer_timeout"]
 [connection signal="killed" from="Player" to="." method="_on_Player_killed"]
 
 [editable path="GUI"]

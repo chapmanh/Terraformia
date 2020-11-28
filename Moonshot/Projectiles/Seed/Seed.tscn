@@ -91,6 +91,7 @@ one_shot = true
 
 [node name="AudioShrivel" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
+volume_db = -25.0
 
 [node name="AudioGrow" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )

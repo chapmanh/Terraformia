@@ -16,7 +16,7 @@ onready var enemyLocation := $EnemyGenerator
 export var startingSpeed : float = 100.0
 
 # Init. level info
-export var lvl : int = 1
+export var lvl : int = 0
 var lvlLength : int = 10
 
 
@@ -27,11 +27,18 @@ var spawnAir := [spawnRight, spawnTop]
 
 var spawnGround := Vector2(1050, 550)
 
+var spawnTime: float = 1.0
+var speedMult: float = 50.0
+
 func _ready() -> void:
 	pass
 
 func _on_LevelTimer_timeout() -> void:
 	lvl += 1
+	spawnTime = 1 - min((max(lvl, 5)-5) * 0.05, 1)
+	speedMult = 50 * min(lvl, 5)
+	print("Spawn interval: " + str(spawnTime) + " s")
+	print("Speed Multiplier: " + str(speedMult))
 	print("Level: ", lvl)
 
 func _on_EnemyGenerationTimer_timeout() -> void:
@@ -41,18 +48,18 @@ func _on_EnemyGenerationTimer_timeout() -> void:
 	spawnTop = Vector2(rand_range(512, 1050), -20)
 	spawnAir = [spawnRight, spawnTop]
 	
-	# soil gen (10% chance)
-	if randi() % 10 >= 5:
+	# soil gen (20% chance)
+	if randi() % 10 >= 8:
 		_create_soil(soil, Vector2(1050, 580))
 	
 	# enemy select
 	var enemy = _enemy_select(enemies)
 	
 	# Create the enemy at a random position from the possible positions
-	_create_enemy(enemy, spawnAir[randi() % len(spawnAir)], 50 * lvl)
+	_create_enemy(enemy, spawnAir[randi() % len(spawnAir)], speedMult)
 	
 	# Restart EnemyGenerationTimer (currently with default time)
-	enemyGenTimer.start()
+	enemyGenTimer.start(spawnTime)
 
 func _create_enemy(enemy, location, speed) -> void:
 	var enemy_instance = enemy.instance()

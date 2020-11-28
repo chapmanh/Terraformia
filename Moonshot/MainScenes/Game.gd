@@ -1,6 +1,6 @@
 extends Node2D
 
-onready var scoreLabel = $ScoreLabel
+onready var HighScoreLabel = $ScoreLabel
 onready var highScores = $HighScores
 
 var plMeteor := preload("res://Meteor/Meteor.tscn")

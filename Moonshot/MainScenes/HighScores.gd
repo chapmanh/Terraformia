@@ -26,13 +26,13 @@ var board: Array = [nameData, scoreData]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	# Update board
 	_updateBoard()
-	
-	# Testing new submission function
-	_newAttempt(board, ["big guy", 6666])
+#	# Testing new submission function
+#	newAttempt(["big guy", 6666])
 
 # Given the current board, place [attemptName, attemptScore] inside
-func _newAttempt(board, attempt):
+func newAttempt(attempt):
 	print("Updating board...")
 	var names: Array = board[0]
 	var attemptName: String = attempt[0]

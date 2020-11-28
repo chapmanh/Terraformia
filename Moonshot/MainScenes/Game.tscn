@@ -1,5 +1,6 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=17 format=2]
 
+[ext_resource path="res://MainScenes/HighScores.tscn" type="PackedScene" id=1]
 [ext_resource path="res://FGBG/Background/Background_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://MainScenes/Game.gd" type="Script" id=4]
@@ -10,7 +11,46 @@
 [ext_resource path="res://FGBG/Background/Background_Distant.gd" type="Script" id=9]
 [ext_resource path="res://FGBG/Background/Background_Distant_Static.tscn" type="PackedScene" id=10]
 [ext_resource path="res://FGBG/Background/Ground.tscn" type="PackedScene" id=11]
+[ext_resource path="res://assets/Fonts/OpenSans-ExtraBold.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://MainScenes/EnemySpawn.gd" type="Script" id=13]
+
+[sub_resource type="Animation" id=1]
+resource_name = "fadeOut"
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "fadeOut"
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="DynamicFont" id=3]
+size = 25
+font_data = ExtResource( 12 )
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 4 )
@@ -20,7 +60,6 @@ script = ExtResource( 4 )
 [node name="MobTimer" type="Timer" parent="."]
 
 [node name="Backgrounds" type="Node2D" parent="."]
-visible = false
 
 [node name="Background_Distant" parent="Backgrounds" instance=ExtResource( 8 )]
 script = ExtResource( 9 )
@@ -41,6 +80,15 @@ position = Vector2( -1.07593, 0 )
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 100, 300 )
 
+[node name="HighScores" parent="." instance=ExtResource( 1 )]
+modulate = Color( 1, 1, 1, 0 )
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="APHighScores" type="AnimationPlayer" parent="HighScores"]
+anims/fadeIn = SubResource( 1 )
+anims/fadeOut = SubResource( 2 )
+
 [node name="EnemySpawn" type="Node2D" parent="."]
 script = ExtResource( 13 )
 
@@ -56,13 +104,80 @@ stream = ExtResource( 5 )
 wait_time = 10.0
 autostart = true
 
-[node name="ScoreLabel" type="Label" parent="."]
-anchor_right = 1.0
-margin_right = 78.0
-margin_bottom = 78.0
+[node name="HUD2" type="HBoxContainer" parent="."]
+margin_right = 1024.0
+margin_bottom = 60.0
+rect_clip_content = true
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="ScoreContainer" type="HBoxContainer" parent="HUD2"]
+margin_right = 181.0
+margin_bottom = 60.0
+
+[node name="LabelScore" type="Label" parent="HUD2/ScoreContainer"]
+margin_right = 77.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 35, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 3 )
+text = "Score:"
+valign = 1
+
+[node name="LabelScoreValue" type="Label" parent="HUD2/ScoreContainer"]
+margin_left = 81.0
+margin_right = 181.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 3 )
+text = "100"
+align = 2
+valign = 1
+clip_text = true
+
+[node name="LabelBuffer" type="Label" parent="HUD2"]
+margin_left = 185.0
+margin_right = 816.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 3 )
+valign = 1
+clip_text = true
+
+[node name="LevelContainer" type="HBoxContainer" parent="HUD2"]
+margin_left = 820.0
+margin_right = 1024.0
+margin_bottom = 60.0
+
+[node name="LabelLevel" type="Label" parent="HUD2/LevelContainer"]
+margin_right = 100.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 3 )
+text = "Level:"
+align = 2
+valign = 1
+
+[node name="LabelLevelValue" type="Label" parent="HUD2/LevelContainer"]
+margin_left = 104.0
+margin_right = 204.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 100, 60 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 3 )
+text = "10"
+align = 2
+valign = 1
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="killed" from="Player" to="." method="_on_Player_killed"]
 [connection signal="timeout" from="EnemySpawn/EnemyGenerator/EnemyGenerationTimer" to="EnemySpawn" method="_on_EnemyGenerationTimer_timeout"]

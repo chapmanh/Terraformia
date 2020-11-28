@@ -1,6 +1,7 @@
 extends Node2D
 
 onready var scoreLabel = $ScoreLabel
+onready var highScores = $HighScores
 
 var plMeteor := preload("res://Meteor/Meteor.tscn")
 var score : int
@@ -9,6 +10,7 @@ var score : int
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
+	highScores.visible = false
 	new_game()
 	
 	# Initialise ground scroll speed via shaders
@@ -28,6 +30,11 @@ func game_over() -> void:
 	
 	# Stop level increase
 	$LevelTimer.stop()
+	
+	# Display scores
+	highScores.visible = true
+	$HighScores/APHighScores.play("fadeIn")
+	
 
 func new_game():
 	score = 0

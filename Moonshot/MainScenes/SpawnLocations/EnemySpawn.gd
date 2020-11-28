@@ -33,6 +33,18 @@ var speedMult: float = 50.0
 func _ready() -> void:
 	pass
 
+
+func start_spawn():
+	enemyGenTimer.start()
+	
+func stop_spawn():
+	enemyGenTimer.stop()
+
+func restart_spawn():
+	lvl = 0
+	spawnTime = 1 - min((max(lvl, 5)-5) * 0.05, 1)
+	speedMult = 50 * min(lvl, 5)
+
 func _on_LevelTimer_timeout() -> void:
 	lvl += 1
 	spawnTime = 1 - min((max(lvl, 5)-5) * 0.05, 1)

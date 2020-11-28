@@ -257,7 +257,7 @@ primaryFireDelay = 0.3
 position = Vector2( -35, 0 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 21 )
-frame = 13
+frame = 14
 playing = true
 offset = Vector2( -25, 0 )
 
@@ -291,7 +291,7 @@ emission_rect_extents = Vector2( 10, 1 )
 position = Vector2( -25.7985, -5.70092 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 42 )
-frame = 15
+frame = 16
 playing = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
@@ -335,4 +335,5 @@ volume_db = -25.0
 [node name="AudioPrimaryFire" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 10 )
 volume_db = -25.0
+[connection signal="killed" from="." to="." method="_on_Player_killed"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]

@@ -3,9 +3,10 @@ extends Node2D
 onready var highScoreLabel = find_node("highScoreLabel")
 onready var highScores = $HighScores
 onready var levelTimer = $LevelTimer
+onready var enemySpawn = $EnemySpawn
 onready var enemyGenTimer = $EnemySpawn/EnemyGenerator/EnemyGenerationTimer
 
-var plMeteor := preload("res://Meteor/Meteor.tscn")
+var plPlayer := preload("res://Player/Player.tscn")
 var score : int = 0
 var scoreActive: bool = false
 
@@ -31,29 +32,40 @@ func game_over() -> void:
 	#get_tree().call_group("mobs", "queue_free")
 	
 	# Stop meteors spawning, as doing so without player can break game
-	enemyGenTimer.stop()
+	$GameWaitTimer.stop()
+	enemySpawn.stop_spawn()
 	
 	# Stop level increase
 	$LevelTimer.stop()
 	
-	# Display scores
+	# freeze & display scores
+	scoreActive = false
 	highScores.newAttempt([playerName, score])
 	highScores.visible = true
+	
 	$HighScores/APHighScores.play("fadeIn")
 	
 
 func new_game():
-	score = 0
+	score_inc(-score)
 	scoreActive = true
 	print("Level: ", $EnemySpawn.lvl)
-	$Player.start(Vector2(300,300))
 	$ScoreTimer.start()
 	levelTimer.start()
-	$GameWaitTimer.start()
+	
 	$AudioBGM.play()
+#	_spawn_player(Vector2(100,300))
+	
+	# Ready time (links to spawn start)
+	$GameWaitTimer.start()
+	
+func _spawn_player(pos):
+	var player_instance = plPlayer.instance()
+	player_instance.global_position = pos
+	add_child(player_instance)
 
 func _on_GameWaitTimer_timeout() -> void:
-	enemyGenTimer.start()
+	enemySpawn.start_spawn()
 
 func _on_ScoreTimer_timeout() -> void:
 	score_inc(0)

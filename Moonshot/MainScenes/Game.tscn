@@ -81,9 +81,6 @@ visible = false
 [node name="Ground" parent="." instance=ExtResource( 11 )]
 position = Vector2( -1.07593, 0 )
 
-[node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 100, 300 )
-
 [node name="HighScores" parent="." instance=ExtResource( 1 )]
 modulate = Color( 1, 1, 1, 0 )
 margin_right = 1024.0
@@ -116,9 +113,11 @@ margin_right = 100.0
 [node name="Counters" parent="GUI/HBoxContainer" index="1"]
 margin_left = 104.0
 margin_right = 204.0
+
+[node name="Player" parent="." instance=ExtResource( 3 )]
+position = Vector2( 140.33, 287.071 )
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="GameWaitTimer" to="." method="_on_GameWaitTimer_timeout"]
 [connection signal="timeout" from="LevelTimer" to="EnemySpawn" method="_on_LevelTimer_timeout"]
-[connection signal="killed" from="Player" to="." method="_on_Player_killed"]
 
 [editable path="GUI"]

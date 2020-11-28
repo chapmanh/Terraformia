@@ -6,7 +6,7 @@ var plSeed := preload("res://Projectiles/Seed/Seed.tscn")
 signal health_updated(health)
 signal killed()
 
-#onready var animatedSprite := $AnimatedSprite
+onready var game = get_tree().current_scene
 
 onready var primaryPositions := $PrimaryPositions
 onready var primaryDelayTimer := $PrimaryDelayTimer
@@ -45,6 +45,9 @@ var vel := Vector2(0,0)
 func _ready() -> void:
 	for sprite in range(1, len(shipSprites)):
 		shipSprites[sprite].visible = false
+		
+	# WIP!!!
+#	connect("killed", game, "call_deferred")
 
 func _process(delta):
 	# Animate with animatedSprite once implemented, placeholder names/examples
@@ -144,3 +147,7 @@ func _set_health(value):
 func _on_InvulnerabilityTimer_timeout() -> void:
 	effectAnimation.play("rest")
 	
+
+
+func _on_Player_killed() -> void:
+	game.game_over()

@@ -76,13 +76,13 @@ func lvl_up(spawnRateInc: float, speedInc: float):
 func damage(amount: int):
 	life -= amount
 	if life <= 0:
-		die()
+		die(10)
 		
-func die():
+func die(n):
 	spriteClosed.hide()
 	spriteOpen.hide()
 	spriteDead.show()
-	game.score_inc(10)
+	game.score_inc(n)
 	$CollisionPolygon2D.set_deferred("disabled", true)
 	$DeathTimer.start()
 
@@ -97,4 +97,4 @@ func _on_DeathTimer_timeout() -> void:
 
 func _on_Meteor_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_floor"):
-		die()
+		die(0)

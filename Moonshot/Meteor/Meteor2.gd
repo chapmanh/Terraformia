@@ -17,6 +17,7 @@ onready var spriteDead = $SpriteDead
 
 onready var game = get_tree().current_scene
 
+
 onready var player := get_node("../../Player") # needs looking into...
 
 var speed: float = 0
@@ -61,13 +62,13 @@ func lvl_up(spawnRateInc: float, speedInc: float):
 func damage(amount: int):
 	life -= amount
 	if life <= 0:
-		die()
+		die(15)
 		
-func die():
+func die(n):
 	spriteClosed.hide()
 	spriteOpen.hide()
 	spriteDead.show()
-	game.score_inc(15)
+	game.score_inc(n)
 	$CollisionPolygon2D.set_deferred("disabled", true)
 	$DeathTimer.start()
 
@@ -82,4 +83,4 @@ func _on_DeathTimer_timeout() -> void:
 
 func _on_Meteor2_area_entered(area: Area2D) -> void:
 	if area.is_in_group("enemy_floor"):
-		die()
+		die(0)

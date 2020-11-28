@@ -4,13 +4,14 @@ onready var highScoreLabel = find_node("highScoreLabel")
 onready var highScores = $HighScores
 
 var plMeteor := preload("res://Meteor/Meteor.tscn")
-var score : int
-
+var score : int = 0
+var scoreActive: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	randomize()
 	highScores.visible = false
+	highScoreLabel.text = "0"
 	new_game()
 	
 	# Initialise ground scroll speed via shaders
@@ -38,6 +39,7 @@ func game_over() -> void:
 
 func new_game():
 	score = 0
+	scoreActive = true
 	print("Level: ", $EnemySpawn.lvl)
 	$Player.start(Vector2(300,300))
 	$ScoreTimer.start()
@@ -60,5 +62,6 @@ func lvl_up(spawnRateInc: float, speedInc: float):
 	get_tree().call_group("mobs", "lvl_up", 0.5, 0.5)
 	
 func score_inc(n):
-	score += n
-	highScoreLabel.text = str(score)
+	if scoreActive == true:
+		score += n
+		highScoreLabel.text = str(score)

@@ -101,21 +101,22 @@ wait_time = 10.0
 autostart = true
 
 [node name="GUI" parent="." instance=ExtResource( 12 )]
-margin_right = 1005.0
+margin_right = 614.0
 margin_bottom = 73.0
 
 [node name="HBoxContainer" parent="GUI" index="0"]
-margin_right = 995.0
+margin_right = 604.0
 
 [node name="Bars" parent="GUI/HBoxContainer" index="0"]
-margin_right = 891.0
+margin_right = 500.0
+size_flags_horizontal = 1
 
 [node name="Bar" parent="GUI/HBoxContainer/Bars" index="0"]
-margin_right = 891.0
+margin_right = 500.0
 
 [node name="Counters" parent="GUI/HBoxContainer" index="1"]
-margin_left = 895.0
-margin_right = 995.0
+margin_left = 504.0
+margin_right = 604.0
 [connection signal="timeout" from="ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="killed" from="Player" to="." method="_on_Player_killed"]
 [connection signal="timeout" from="EnemySpawn/EnemyGenerator/EnemyGenerationTimer" to="EnemySpawn" method="_on_EnemyGenerationTimer_timeout"]

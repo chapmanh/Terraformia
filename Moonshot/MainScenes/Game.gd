@@ -47,7 +47,7 @@ func new_game():
 
 
 func _on_ScoreTimer_timeout() -> void:
-	score_inc(1)
+	score_inc(0)
 
 
 func _on_Player_killed() -> void:

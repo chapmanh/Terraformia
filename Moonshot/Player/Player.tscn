@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=55 format=2]
 
 [ext_resource path="res://Assets/Ship/Ship_Damaged_1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -7,6 +7,184 @@
 [ext_resource path="res://Assets/Ship/Ship_Damaged_2.png" type="Texture" id=5]
 [ext_resource path="res://Assets/AUDIO/READY-TO-USE sounds/SHIP IMPACT metal mid.wav" type="AudioStream" id=6]
 [ext_resource path="res://Assets/AUDIO/READY-TO-USE sounds/SHIP IMPACT metal low.wav" type="AudioStream" id=7]
+[ext_resource path="res://Assets/Ship/afterburner.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Ship/Afterburnerglow.png" type="Texture" id=9]
+
+[sub_resource type="AtlasTexture" id=4]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 0, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=5]
+atlas = ExtResource( 8 )
+region = Rect2( 91, 0, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=6]
+atlas = ExtResource( 8 )
+region = Rect2( 182, 0, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=7]
+atlas = ExtResource( 8 )
+region = Rect2( 273, 0, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=8]
+atlas = ExtResource( 8 )
+region = Rect2( 364, 0, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=9]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 42, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=10]
+atlas = ExtResource( 8 )
+region = Rect2( 91, 42, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=11]
+atlas = ExtResource( 8 )
+region = Rect2( 182, 42, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=12]
+atlas = ExtResource( 8 )
+region = Rect2( 273, 42, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=13]
+atlas = ExtResource( 8 )
+region = Rect2( 364, 42, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=14]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 84, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=15]
+atlas = ExtResource( 8 )
+region = Rect2( 91, 84, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=16]
+atlas = ExtResource( 8 )
+region = Rect2( 182, 84, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=17]
+atlas = ExtResource( 8 )
+region = Rect2( 273, 84, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=18]
+atlas = ExtResource( 8 )
+region = Rect2( 364, 84, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=19]
+atlas = ExtResource( 8 )
+region = Rect2( 0, 126, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=20]
+atlas = ExtResource( 8 )
+region = Rect2( 91, 126, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=21]
+atlas = ExtResource( 8 )
+region = Rect2( 182, 126, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=22]
+atlas = ExtResource( 8 )
+region = Rect2( 273, 126, 91, 42 )
+
+[sub_resource type="AtlasTexture" id=23]
+atlas = ExtResource( 8 )
+region = Rect2( 364, 126, 91, 42 )
+
+[sub_resource type="SpriteFrames" id=24]
+animations = [ {
+"frames": [ SubResource( 4 ), SubResource( 5 ), SubResource( 6 ), SubResource( 7 ), SubResource( 8 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ), SubResource( 13 ), SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ), SubResource( 20 ), SubResource( 21 ), SubResource( 22 ), SubResource( 23 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
+
+[sub_resource type="AtlasTexture" id=25]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 0, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=26]
+atlas = ExtResource( 9 )
+region = Rect2( 81, 0, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=27]
+atlas = ExtResource( 9 )
+region = Rect2( 162, 0, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=28]
+atlas = ExtResource( 9 )
+region = Rect2( 243, 0, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=29]
+atlas = ExtResource( 9 )
+region = Rect2( 324, 0, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=30]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 90, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=31]
+atlas = ExtResource( 9 )
+region = Rect2( 81, 90, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=32]
+atlas = ExtResource( 9 )
+region = Rect2( 162, 90, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=33]
+atlas = ExtResource( 9 )
+region = Rect2( 243, 90, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=34]
+atlas = ExtResource( 9 )
+region = Rect2( 324, 90, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=35]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 180, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=36]
+atlas = ExtResource( 9 )
+region = Rect2( 81, 180, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=37]
+atlas = ExtResource( 9 )
+region = Rect2( 162, 180, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=38]
+atlas = ExtResource( 9 )
+region = Rect2( 243, 180, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=39]
+atlas = ExtResource( 9 )
+region = Rect2( 324, 180, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=40]
+atlas = ExtResource( 9 )
+region = Rect2( 0, 270, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=41]
+atlas = ExtResource( 9 )
+region = Rect2( 81, 270, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=42]
+atlas = ExtResource( 9 )
+region = Rect2( 162, 270, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=43]
+atlas = ExtResource( 9 )
+region = Rect2( 243, 270, 81, 90 )
+
+[sub_resource type="AtlasTexture" id=44]
+atlas = ExtResource( 9 )
+region = Rect2( 324, 270, 81, 90 )
+
+[sub_resource type="SpriteFrames" id=45]
+animations = [ {
+"frames": [ SubResource( 25 ), SubResource( 26 ), SubResource( 27 ), SubResource( 28 ), SubResource( 29 ), SubResource( 30 ), SubResource( 31 ), SubResource( 32 ), SubResource( 33 ), SubResource( 34 ), SubResource( 35 ), SubResource( 36 ), SubResource( 37 ), SubResource( 38 ), SubResource( 39 ), SubResource( 40 ), SubResource( 41 ), SubResource( 42 ), SubResource( 43 ), SubResource( 44 ) ],
+"loop": true,
+"name": "default",
+"speed": 60.0
+} ]
 
 [sub_resource type="Animation" id=1]
 resource_name = "damage"
@@ -77,6 +255,14 @@ primaryFireDelay = 0.3
 
 [node name="Sprites" type="Node2D" parent="."]
 
+[node name="Afterburner" type="AnimatedSprite" parent="Sprites"]
+position = Vector2( -35, 0 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 24 )
+frame = 3
+playing = true
+offset = Vector2( -25, 0 )
+
 [node name="Ship_0" type="Sprite" parent="Sprites"]
 scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
@@ -97,6 +283,18 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 region_rect = Rect2( 10, 171, 175, 94 )
 
+[node name="Sparks" type="CPUParticles2D" parent="Sprites/Ship_3"]
+scale = Vector2( 2, 2 )
+emission_shape = 2
+emission_rect_extents = Vector2( 10, 1 )
+
+[node name="Afterburnerglow" type="AnimatedSprite" parent="Sprites"]
+position = Vector2( -25.7985, -5.70092 )
+scale = Vector2( 0.5, 0.5 )
+frames = SubResource( 45 )
+frame = 5
+playing = true
+
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
 visible = false
 polygon = PoolVector2Array( -12.4718, -13.4874, -20.4849, -20.0056, -34.2986, -20.4242, -36.272, -17.9724, -26.8237, -10.0191, -30.5911, -5.35468, -31.0695, 5.46904, -38.664, 10.6716, -33.9398, 13.9606, -18.4517, 14.1998, -16.299, 14.6184, -8.88381, 20.0003, 14.9762, 20.5983, 24.0658, 19.3425, 31.1221, 17.0104, 37.2815, 11.0304, 37.5805, 4.87104, 36.0855, 1.34287, 35.6669, -1.22851, 33.0955, -3.97929, 29.6869, -5.53408, 27.7733, -5.89288, 24.0658, -9.00246, 17.0094, -12.3512, 11.747, -13.6668, 3.7937, -14.4442, -3.68124, -14.4442 )
@@ -107,6 +305,7 @@ polygon = PoolVector2Array( -12.4718, -13.4874, -20.4849, -20.0056, -34.2986, -2
 position = Vector2( 44.8324, 8.50123 )
 
 [node name="SecondaryPositions" type="Node2D" parent="."]
+position = Vector2( 0, -0.141373 )
 
 [node name="Secondary_1" type="Node2D" parent="SecondaryPositions"]
 position = Vector2( 5.30554, 24.4896 )

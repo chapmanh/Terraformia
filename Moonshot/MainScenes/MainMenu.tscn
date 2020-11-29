@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://MainScenes/Main Menu.gd" type="Script" id=1]
 [ext_resource path="res://Assets/terraformia-logo-no-planet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/UI/PressStart2P-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://Assets/AUDIO/READY-TO-USE music/exploring sounds.wav" type="AudioStream" id=4]
 [ext_resource path="res://Assets/Backgrounds/Main_Menu.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=1]
@@ -28,6 +29,11 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+volume_db = -20.0
+autoplay = true
 
 [node name="terraformia-logo-no-planet" type="Sprite" parent="."]
 position = Vector2( 572.125, 207.202 )

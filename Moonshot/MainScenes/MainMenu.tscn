@@ -5,21 +5,21 @@
 [ext_resource path="res://Assets/UI/PressStart2P-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Backgrounds/Main_Menu.png" type="Texture" id=7]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 20
 font_data = ExtResource( 3 )
 
-[sub_resource type="AnimatedTexture" id=3]
+[sub_resource type="AnimatedTexture" id=2]
+
+[sub_resource type="DynamicFont" id=3]
+size = 12
+font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 12
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=5]
-size = 12
-font_data = ExtResource( 3 )
-
-[node name="TextureRect" type="TextureRect"]
+[node name="MainMenu" type="TextureRect"]
 margin_right = 1024.0
 margin_bottom = 600.0
 texture = ExtResource( 7 )
@@ -44,13 +44,13 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="New Game" type="Button" parent="VBoxContainer"]
+[node name="ButtonNewGame" type="Button" parent="VBoxContainer"]
 margin_right = 325.0
 margin_bottom = 26.0
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "New Game"
-icon = SubResource( 3 )
+icon = SubResource( 2 )
 flat = true
 align = 0
 
@@ -59,7 +59,7 @@ margin_top = 30.0
 margin_right = 325.0
 margin_bottom = 222.0
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Instructions:
 
 * Arrows/WASD to navigate 
@@ -79,7 +79,7 @@ margin_top = 226.0
 margin_right = 325.0
 margin_bottom = 253.0
 size_flags_vertical = 0
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 4 )
 text = "ver 1.0.0
 Pale Sky Studios"
-[connection signal="pressed" from="VBoxContainer/New Game" to="." method="_on_New_Game_pressed"]
+[connection signal="pressed" from="VBoxContainer/ButtonNewGame" to="." method="_on_New_Game_pressed"]

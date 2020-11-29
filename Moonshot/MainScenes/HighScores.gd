@@ -73,4 +73,14 @@ func _updateBoard():
 
 func _on_ButtonRestartGame_pressed() -> void:
 	buttonRestart.disabled = true
+	$APHighScores.play("fadeOut")
+	yield($APHighScores, "animation_finished")
+	visible = false
 	game.new_game()
+	
+func game_over():
+	$APHighScores.play("fadeIn")
+	visible = true
+	yield($APHighScores, "animation_finished")
+	buttonRestart.disabled = false
+	

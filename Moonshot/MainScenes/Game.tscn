@@ -1,9 +1,10 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://MainScenes/HighScores.tscn" type="PackedScene" id=1]
 [ext_resource path="res://FGBG/Background/Background_1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Assets/AUDIO/READY-TO-USE music/dalpea naivas remix LOOP.wav" type="AudioStream" id=3]
 [ext_resource path="res://MainScenes/Game.gd" type="Script" id=4]
+[ext_resource path="res://MainScenes/MainMenu.tscn" type="PackedScene" id=5]
 [ext_resource path="res://FGBG/Background/Background_2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://FGBG/Background/Background_3.tscn" type="PackedScene" id=7]
 [ext_resource path="res://FGBG/Background/Background_Distant.tscn" type="PackedScene" id=8]
@@ -47,9 +48,44 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "fadeOut"
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "fadeOut"
+length = 3.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [node name="All" type="Node2D"]
 
 [node name="Game" type="Node2D" parent="."]
+light_mask = -2147483647
 script = ExtResource( 4 )
 
 [node name="ScoreTimer" type="Timer" parent="Game"]
@@ -97,6 +133,12 @@ volume_db = -15.0
 [node name="GUI" parent="Game" instance=ExtResource( 12 )]
 margin_right = 614.0
 margin_bottom = 73.0
+
+[node name="MainMenu" parent="." instance=ExtResource( 5 )]
+
+[node name="APMainMenu" type="AnimationPlayer" parent="MainMenu"]
+anims/fadeIn = SubResource( 3 )
+anims/fadeOut = SubResource( 4 )
 [connection signal="timeout" from="Game/ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="Game/ScoreTimer" to="Game" method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="Game/GameWaitTimer" to="." method="_on_GameWaitTimer_timeout"]

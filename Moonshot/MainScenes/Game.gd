@@ -20,7 +20,6 @@ func _ready() -> void:
 	randomize()
 	highScores.visible = false
 	highScoreLabel.text = "0"
-	new_game()
 	
 	# Initialise ground scroll speed via shaders
 	
@@ -43,9 +42,8 @@ func game_over() -> void:
 	# freeze & display scores
 	scoreActive = false
 	highScores.newAttempt([playerName, score])
-	highScores.visible = true
 	
-	$HighScores/APHighScores.play("fadeIn")
+	highScores.game_over()
 	highScores.buttonRestart.disabled = false
 	
 
@@ -55,7 +53,7 @@ func new_game():
 	# Kill any mobs
 	get_tree().call_group("mobs", "queue_free")
 	
-	$HighScores/APHighScores.play("fadeOut")
+#	$HighScores/APHighScores.play("fadeOut")
 	scoreActive = true
 	score_inc(-score)
 #	print("Level: ", $EnemySpawn.lvl)

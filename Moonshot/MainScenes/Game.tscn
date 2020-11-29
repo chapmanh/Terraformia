@@ -104,15 +104,16 @@ margin_bottom = 73.0
 margin_right = 604.0
 
 [node name="Bars" parent="GUI/HBoxContainer" index="0"]
-margin_right = 100.0
+margin_right = 0.0
 size_flags_horizontal = 1
 
 [node name="Bar" parent="GUI/HBoxContainer/Bars" index="0"]
+visible = false
 margin_right = 100.0
 
 [node name="Counters" parent="GUI/HBoxContainer" index="1"]
-margin_left = 104.0
-margin_right = 204.0
+margin_left = 4.0
+margin_right = 104.0
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 140.33, 287.071 )

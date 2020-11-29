@@ -15,7 +15,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Terraformia [Github]"
+config/name="Terraformia"
+config/description="An arcade like run and gun game that guides the player through shooting meteorites and terraforming the Moon!"
 run/main_scene="res://MainScenes/Game.tscn"
 config/icon="res://icon.png"
 

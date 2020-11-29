@@ -1,4 +1,4 @@
-extends MarginContainer
+extends TextureRect
 
 
 func _on_New_Game_pressed() -> void:

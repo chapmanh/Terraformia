@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://MainScenes/Main Menu.gd" type="Script" id=1]
-[ext_resource path="res://Assets/UI/terraformia-logo.png" type="Texture" id=2]
+[ext_resource path="res://Assets/terraformia-logo-no-planet.png" type="Texture" id=2]
 [ext_resource path="res://Assets/UI/PressStart2P-Regular.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://Assets/Backgrounds/Main_Menu.png" type="Texture" id=7]
 
@@ -11,11 +11,11 @@ font_data = ExtResource( 3 )
 
 [sub_resource type="AnimatedTexture" id=3]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=4]
 size = 12
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 12
 font_data = ExtResource( 3 )
 
@@ -32,14 +32,14 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="."]
-margin_right = 1740.0
-margin_bottom = 780.0
+margin_right = 1024.0
+margin_bottom = 600.0
 texture = ExtResource( 7 )
 expand = true
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-margin_right = 1740.0
-margin_bottom = 780.0
+margin_right = 1024.0
+margin_bottom = 600.0
 custom_constants/margin_right = 120
 custom_constants/margin_top = 80
 custom_constants/margin_left = 120
@@ -48,52 +48,56 @@ custom_constants/margin_bottom = 80
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
 margin_left = 120.0
 margin_top = 80.0
-margin_right = 1620.0
-margin_bottom = 700.0
+margin_right = 904.0
+margin_bottom = 520.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
-margin_right = 576.0
-margin_bottom = 620.0
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_right = 576.0
-margin_bottom = 133.0
-texture = ExtResource( 2 )
-stretch_mode = 3
+margin_top = 220.0
+margin_right = 480.0
+margin_bottom = 440.0
 
 [node name="New Game" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 137.0
-margin_right = 576.0
-margin_bottom = 423.0
-size_flags_vertical = 3
+margin_right = 480.0
+margin_bottom = 26.0
+size_flags_vertical = 0
 custom_fonts/font = SubResource( 2 )
 text = "New Game"
 icon = SubResource( 3 )
 flat = true
 align = 0
 
-[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 427.0
-margin_right = 576.0
-margin_bottom = 589.0
-custom_fonts/font = SubResource( 5 )
+[node name="Instructions" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 30.0
+margin_right = 480.0
+margin_bottom = 177.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 4 )
 text = "Instructions:
 
-* Use the arrows to navigate 
-and the Space bar to shoot bullets at meteorites
-* Plant seeds into soil pads to terraform 
-the moon surface.
-* Gain points for both seeds planted and
-meteorites destroyed.
-* Highest scored player wins!
+* Arrows/WASD to navigate 
+* Space bar/left click to shoot bullets 
+at meteorites
+* Plant seeds into soil pads to 
+terraform 
+the moon surface with Shift/right click
 
 "
+__meta__ = {
+"_edit_use_anchors_": false
+}
 
-[node name="Studio Credit" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-margin_top = 593.0
-margin_right = 576.0
-margin_bottom = 620.0
-custom_fonts/font = SubResource( 4 )
+[node name="StudioCredit" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+margin_top = 181.0
+margin_right = 480.0
+margin_bottom = 208.0
+size_flags_vertical = 0
+custom_fonts/font = SubResource( 5 )
 text = "ver 1.0.0
 Pale Sky Studios"
+
+[node name="terraformia-logo-no-planet" type="Sprite" parent="."]
+position = Vector2( 572.125, 207.202 )
+rotation = -0.761706
+scale = Vector2( 0.34874, 0.34874 )
+texture = ExtResource( 2 )
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/New Game" to="." method="_on_New_Game_pressed"]

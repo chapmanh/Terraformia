@@ -3,6 +3,9 @@ extends MarginContainer
 onready var labelNames = $ScoreBoard/VBoxContainer/HBoxContainer/LabelNames
 onready var labelScores = $ScoreBoard/VBoxContainer/HBoxContainer/LabelScores
 
+onready var buttonRestart = $ScoreBoard/VBoxContainer/ButtonRestartGame
+onready var game = get_tree().current_scene
+
 var scoreData: Array = [
 	1000,
 	750,
@@ -66,3 +69,8 @@ func _updateBoard():
 	
 	labelNames.set_text(names)
 	labelScores.set_text(scores)
+
+
+func _on_ButtonRestartGame_pressed() -> void:
+	buttonRestart.disabled = true
+	game.new_game()

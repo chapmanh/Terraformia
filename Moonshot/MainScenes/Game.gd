@@ -2,11 +2,14 @@ extends Node2D
 
 onready var highScoreLabel = find_node("highScoreLabel")
 onready var highScores = $HighScores
+
 onready var levelTimer = $LevelTimer
 onready var enemySpawn = $EnemySpawn
 onready var enemyGenTimer = $EnemySpawn/EnemyGenerator/EnemyGenerationTimer
 
 var plPlayer := preload("res://Player/Player.tscn")
+
+# Score board stuff
 var score : int = 0
 var scoreActive: bool = false
 
@@ -44,20 +47,25 @@ func game_over() -> void:
 	highScores.visible = true
 	
 	$HighScores/APHighScores.play("fadeIn")
+	highScores.buttonRestart.disabled = false
 	
 
 func new_game():
-	score_inc(-score)
+	$HighScores/APHighScores.play("fadeOut")
 	scoreActive = true
+	score_inc(-score)
 	print("Level: ", $EnemySpawn.lvl)
 	$ScoreTimer.start()
 	levelTimer.start()
 	
 	$AudioBGM.play()
-#	_spawn_player(Vector2(100,300))
+	_spawn_player(Vector2(100,300))
 	
 	# Ready time (links to spawn start)
-	$GameWaitTimer.start()
+	$GameWaitTimer.start(7.5)
+	
+	# Kill any mobs
+	get_tree().call_group("mobs", "queue_free")
 	
 func _spawn_player(pos):
 	var player_instance = plPlayer.instance()

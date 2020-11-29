@@ -8,3 +8,8 @@ func _on_New_Game_pressed() -> void:
 	game.new_game()
 	yield($APMainMenu, "animation_finished")
 	visible = false
+	
+func main_menu():
+	visible = true
+	$APMainMenu.play("fadeIn")
+	$VBoxContainer/ButtonNewGame.disabled = false

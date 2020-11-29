@@ -4,6 +4,7 @@ onready var labelNames = $ScoreBoard/VBoxContainer/HBoxContainer/LabelNames
 onready var labelScores = $ScoreBoard/VBoxContainer/HBoxContainer/LabelScores
 
 onready var buttonRestart = $ScoreBoard/VBoxContainer/HBoxContainer2/ButtonRestartGame
+onready var buttonMain = $ScoreBoard/VBoxContainer/HBoxContainer2/ButtonMainMenu
 onready var game = get_tree().current_scene.get_node("Game")
 
 var scoreData: Array = [
@@ -73,6 +74,7 @@ func _updateBoard():
 
 func _on_ButtonRestartGame_pressed() -> void:
 	buttonRestart.disabled = true
+	buttonMain.disabled = true
 	$APHighScores.play("fadeOut")
 	yield($APHighScores, "animation_finished")
 	visible = false
@@ -83,4 +85,14 @@ func game_over():
 	visible = true
 	yield($APHighScores, "animation_finished")
 	buttonRestart.disabled = false
+	buttonMain.disabled = false
+
+
+func _on_ButtonMainMenu_pressed() -> void:
+	buttonRestart.disabled = true
+	buttonMain.disabled = true
+	$APHighScores.play("fadeOut")
+	get_tree().current_scene.get_node("MainMenu").main_menu()
+	yield($APHighScores, "animation_finished")
+	visible = false
 	

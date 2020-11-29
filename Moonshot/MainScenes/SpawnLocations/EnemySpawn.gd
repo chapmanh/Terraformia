@@ -35,7 +35,7 @@ func _ready() -> void:
 
 
 func start_spawn():
-	lvl = 0
+	lvl = 1
 	spawnTime = 1 - min((max(lvl, 5)-5) * 0.05, 1)
 	speedMult = 50 * min(lvl, 5)
 	enemyGenTimer.start()
@@ -52,7 +52,7 @@ func _on_LevelTimer_timeout() -> void:
 	print("Level: ", lvl)
 
 func _on_EnemyGenerationTimer_timeout() -> void:
-	
+	print("Enemy Gen Timeout")
 	# Randomise next possible spawn locations, update array
 	spawnRight = Vector2(1050, rand_range(0, 450))
 	spawnTop = Vector2(rand_range(512, 1050), -20)
@@ -72,6 +72,7 @@ func _on_EnemyGenerationTimer_timeout() -> void:
 	enemyGenTimer.start(spawnTime)
 
 func _create_enemy(enemy, location, speed) -> void:
+	print("creating enemy")
 	var enemy_instance = enemy.instance()
 	enemy_instance.global_position = location
 	enemy_instance.speed = speed

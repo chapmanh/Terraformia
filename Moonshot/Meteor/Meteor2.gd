@@ -15,7 +15,7 @@ onready var spriteOpen = $SpriteOpen
 onready var spriteClosed = $SpriteClosed
 onready var spriteDead = $SpriteDead
 
-onready var game = get_tree().current_scene
+onready var game = get_tree().current_scene.get_node("Game")
 
 
 onready var player := get_node("../../Player") # needs looking into...

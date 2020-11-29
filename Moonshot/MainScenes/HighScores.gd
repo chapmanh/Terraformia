@@ -3,8 +3,8 @@ extends MarginContainer
 onready var labelNames = $ScoreBoard/VBoxContainer/HBoxContainer/LabelNames
 onready var labelScores = $ScoreBoard/VBoxContainer/HBoxContainer/LabelScores
 
-onready var buttonRestart = $ScoreBoard/VBoxContainer/ButtonRestartGame
-onready var game = get_tree().current_scene
+onready var buttonRestart = $ScoreBoard/VBoxContainer/HBoxContainer2/ButtonRestartGame
+onready var game = get_tree().current_scene.get_node("Game")
 
 var scoreData: Array = [
 	1000,

@@ -59,14 +59,14 @@ align = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="ScoreBoard/VBoxContainer"]
 margin_top = 59.0
 margin_right = 784.0
-margin_bottom = 404.0
+margin_bottom = 410.0
 rect_min_size = Vector2( 500, 300 )
 rect_clip_content = true
 size_flags_vertical = 3
 
 [node name="LabelPos" type="Label" parent="ScoreBoard/VBoxContainer/HBoxContainer"]
 margin_right = 35.0
-margin_bottom = 345.0
+margin_bottom = 351.0
 rect_min_size = Vector2( 35, 0 )
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -81,7 +81,7 @@ valign = 1
 [node name="LabelNames" type="Label" parent="ScoreBoard/VBoxContainer/HBoxContainer"]
 margin_left = 39.0
 margin_right = 666.0
-margin_bottom = 345.0
+margin_bottom = 351.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_horizontal = 3
 size_flags_vertical = 1
@@ -98,7 +98,7 @@ clip_text = true
 [node name="LabelScores" type="Label" parent="ScoreBoard/VBoxContainer/HBoxContainer"]
 margin_left = 670.0
 margin_right = 784.0
-margin_bottom = 345.0
+margin_bottom = 351.0
 rect_min_size = Vector2( 100, 0 )
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
@@ -111,16 +111,32 @@ Score
 align = 2
 valign = 1
 
-[node name="ButtonRestartGame" type="Button" parent="ScoreBoard/VBoxContainer"]
-margin_left = 264.0
-margin_top = 408.0
-margin_right = 519.0
+[node name="HBoxContainer2" type="HBoxContainer" parent="ScoreBoard/VBoxContainer"]
+margin_top = 414.0
+margin_right = 784.0
 margin_bottom = 440.0
-size_flags_horizontal = 4
+alignment = 1
+
+[node name="ButtonRestartGame" type="Button" parent="ScoreBoard/VBoxContainer/HBoxContainer2"]
+margin_right = 390.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 2 )
 shortcut_in_tooltip = false
 text = "Restart Game"
 icon = SubResource( 3 )
 flat = true
-[connection signal="pressed" from="ScoreBoard/VBoxContainer/ButtonRestartGame" to="." method="_on_ButtonRestartGame_pressed"]
+
+[node name="ButtonQuitGame" type="Button" parent="ScoreBoard/VBoxContainer/HBoxContainer2"]
+margin_left = 394.0
+margin_right = 784.0
+margin_bottom = 26.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 2 )
+shortcut_in_tooltip = false
+text = "Main Menu"
+icon = SubResource( 3 )
+flat = true
+[connection signal="pressed" from="ScoreBoard/VBoxContainer/HBoxContainer2/ButtonRestartGame" to="." method="_on_ButtonRestartGame_pressed"]

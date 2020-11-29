@@ -31,7 +31,6 @@ func _ready() -> void:
 
 func game_over() -> void:
 	$ScoreTimer.stop()
-	$MobTimer.stop()
 	#get_tree().call_group("mobs", "queue_free")
 	
 	# Stop meteors spawning, as doing so without player can break game
@@ -51,21 +50,25 @@ func game_over() -> void:
 	
 
 func new_game():
+	print("new game")
+	
+	# Kill any mobs
+	get_tree().call_group("mobs", "queue_free")
+	
 	$HighScores/APHighScores.play("fadeOut")
 	scoreActive = true
 	score_inc(-score)
-	print("Level: ", $EnemySpawn.lvl)
+#	print("Level: ", $EnemySpawn.lvl)
 	$ScoreTimer.start()
-	levelTimer.start()
+	
 	
 	$AudioBGM.play()
 	_spawn_player(Vector2(100,300))
 	
 	# Ready time (links to spawn start)
-	$GameWaitTimer.start(7.5)
+	$GameWaitTimer.start()
 	
-	# Kill any mobs
-	get_tree().call_group("mobs", "queue_free")
+	
 	
 func _spawn_player(pos):
 	var player_instance = plPlayer.instance()
@@ -73,6 +76,8 @@ func _spawn_player(pos):
 	add_child(player_instance)
 
 func _on_GameWaitTimer_timeout() -> void:
+	print("Gamewait timeout")
+	levelTimer.start()
 	enemySpawn.start_spawn()
 
 func _on_ScoreTimer_timeout() -> void:

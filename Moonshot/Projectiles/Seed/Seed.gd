@@ -7,7 +7,7 @@ onready var collider = $CollisionShape2D
 onready var audioShrivel = $AudioShrivel
 onready var audioGrow = $AudioGrow
 
-onready var game = get_tree().current_scene
+onready var game = get_tree().current_scene.get_node("Game")
 
 export var speed: float = 500
 export var drag: float = 240

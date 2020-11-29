@@ -6,7 +6,7 @@ var plSeed := preload("res://Projectiles/Seed/Seed.tscn")
 signal health_updated(health)
 signal killed()
 
-onready var game = get_tree().current_scene
+onready var game = get_tree().current_scene.get_node("Game")
 
 onready var primaryPositions := $PrimaryPositions
 onready var primaryDelayTimer := $PrimaryDelayTimer

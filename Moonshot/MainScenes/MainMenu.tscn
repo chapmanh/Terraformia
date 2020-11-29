@@ -45,6 +45,8 @@ __meta__ = {
 }
 
 [node name="ButtonNewGame" type="Button" parent="VBoxContainer"]
+margin_left = -9.0
+margin_top = -53.0
 margin_right = 325.0
 margin_bottom = 26.0
 size_flags_vertical = 0

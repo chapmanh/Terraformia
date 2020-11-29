@@ -16,11 +16,11 @@ var scoreData: Array = [
 ]
 
 var nameData: Array = [
-	"Player 1 SUUUUPER LONG NAME TEST",
-	"hfudiasfea",
-	"dhwuwiadhuwai",
-	"babx9oqoa",
-	"hgiacjabchfda",
+	"HTheGreat",
+	"Kenthril",
+	"Ioanna",
+	"Juuso",
+	"tsouthom",
 ]
 
 

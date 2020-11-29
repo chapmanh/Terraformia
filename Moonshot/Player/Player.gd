@@ -30,7 +30,7 @@ onready var shipSprites := [
 	$Sprites/Ship_3,
 	]
 
-export var speed: float = 100.0
+export var speed: float = 200.0
 export var primaryFireDelay: float = 0.1 
 export var secondaryFireDelay: float = 2.0
 export var invincibility: float = 2.0

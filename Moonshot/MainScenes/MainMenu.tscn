@@ -30,10 +30,12 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="AudioMainMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -20.0
 autoplay = true
+
+[node name="TweenOut" type="Tween" parent="AudioMainMenu"]
 
 [node name="terraformia-logo-no-planet" type="Sprite" parent="."]
 position = Vector2( 572.125, 207.202 )
@@ -51,8 +53,6 @@ __meta__ = {
 }
 
 [node name="ButtonNewGame" type="Button" parent="VBoxContainer"]
-margin_left = -9.0
-margin_top = -53.0
 margin_right = 325.0
 margin_bottom = 26.0
 size_flags_vertical = 0

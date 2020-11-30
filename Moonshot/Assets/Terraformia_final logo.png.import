@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/terraformia-logo-no-planet.png-691e1fa73ccd1dbb90318acc989d6a98.stex"
+path="res://.import/Terraformia_final logo.png-0756e40647151b7e9db3718d76eba242.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/terraformia-logo-no-planet.png"
-dest_files=[ "res://.import/terraformia-logo-no-planet.png-691e1fa73ccd1dbb90318acc989d6a98.stex" ]
+source_file="res://Assets/Terraformia_final logo.png"
+dest_files=[ "res://.import/Terraformia_final logo.png-0756e40647151b7e9db3718d76eba242.stex" ]
 
 [params]
 

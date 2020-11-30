@@ -130,6 +130,8 @@ anims/fadeOut = SubResource( 2 )
 stream = ExtResource( 3 )
 volume_db = -15.0
 
+[node name="Tween" type="Tween" parent="Game/AudioBGM"]
+
 [node name="GUI" parent="Game" instance=ExtResource( 12 )]
 margin_right = 614.0
 margin_bottom = 73.0

@@ -33,7 +33,6 @@ __meta__ = {
 [node name="AudioMainMenu" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 4 )
 volume_db = -20.0
-autoplay = true
 
 [node name="TweenOut" type="Tween" parent="AudioMainMenu"]
 
@@ -90,4 +89,5 @@ size_flags_vertical = 0
 custom_fonts/font = SubResource( 4 )
 text = "ver 1.0.0
 Pale Sky Studios"
+[connection signal="tween_completed" from="AudioMainMenu/TweenOut" to="." method="_on_TweenOut_tween_completed"]
 [connection signal="pressed" from="VBoxContainer/ButtonNewGame" to="." method="_on_New_Game_pressed"]

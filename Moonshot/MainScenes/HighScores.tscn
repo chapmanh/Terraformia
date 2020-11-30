@@ -74,6 +74,7 @@ text = "1.
 3.
 4.
 5.
+6.
 "
 valign = 1
 
@@ -90,6 +91,7 @@ Name
 Name
 Name
 Name
+Name
 "
 valign = 1
 clip_text = true
@@ -102,6 +104,7 @@ rect_min_size = Vector2( 100, 0 )
 size_flags_vertical = 1
 custom_fonts/font = SubResource( 1 )
 text = "Score
+Score
 Score
 Score
 Score

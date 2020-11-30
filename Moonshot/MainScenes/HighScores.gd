@@ -13,14 +13,16 @@ var scoreData: Array = [
 	600,
 	400,
 	250,
+	0,
 ]
 
 var nameData: Array = [
-	"HTheGreat",
-	"Kenthril",
-	"Ioanna",
-	"Juuso",
-	"tsouthom",
+	"HTheGreat (Code Guy)",
+	"Kenthril (Mr.Artist)",
+	"Ioanna (Story Gal)",
+	"Juuso (Sound Dude)",
+	"tsouthom (Code Guy)",
+	"",
 ]
 
 
@@ -62,7 +64,7 @@ func _updateBoard():
 	var names: String = ""
 	var scores: String = ""
 	
-	for i in range(5):
+	for i in range(6):
 		# names = board[0]
 		names += str(board[0][i]) + "\n"
 		# scores = board[1]

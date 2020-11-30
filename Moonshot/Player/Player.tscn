@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=2]
+[gd_scene load_steps=119 format=2]
 
 [ext_resource path="res://Assets/Ship/Ship_Damaged_1.png" type="Texture" id=1]
 [ext_resource path="res://Player/Player.gd" type="Script" id=2]
@@ -452,6 +452,22 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 0.0470588, 0, 1 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=107]
+resource_name = "fadeOut"
+length = 4.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprites:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
 [sub_resource type="Animation" id=105]
 length = 0.2
 loop = true
@@ -497,16 +513,16 @@ tracks/1/keys = {
 [node name="Player" type="Area2D"]
 collision_mask = 10
 script = ExtResource( 2 )
-speed = 200.0
 primaryFireDelay = 0.3
 
 [node name="Sprites" type="Node2D" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 
 [node name="Afterburner" type="AnimatedSprite" parent="Sprites"]
 position = Vector2( -35, 0 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 21 )
-frame = 15
+frame = 12
 playing = true
 offset = Vector2( -25, 0 )
 
@@ -541,7 +557,6 @@ region_rect = Rect2( 10, 171, 175, 94 )
 position = Vector2( -18.2503, -68.5962 )
 frames = SubResource( 82 )
 animation = "Smoke"
-frame = 43
 playing = true
 
 [node name="Sparks_3" type="CPUParticles2D" parent="Sprites/Ship_3"]
@@ -555,7 +570,7 @@ emission_rect_extents = Vector2( 10, 1 )
 position = Vector2( -25.7985, -5.70092 )
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 103 )
-frame = 17
+frame = 14
 playing = true
 
 [node name="CollisionShape2D" type="CollisionPolygon2D" parent="."]
@@ -583,8 +598,12 @@ one_shot = true
 wait_time = 0.8
 one_shot = true
 
+[node name="DeathTimer" type="Timer" parent="."]
+wait_time = 3.0
+
 [node name="EffectAnimation" type="AnimationPlayer" parent="."]
 anims/damage = SubResource( 104 )
+anims/fadeOut = SubResource( 107 )
 anims/flash = SubResource( 105 )
 anims/rest = SubResource( 106 )
 
@@ -601,3 +620,4 @@ stream = ExtResource( 10 )
 volume_db = -25.0
 [connection signal="killed" from="." to="." method="_on_Player_killed"]
 [connection signal="timeout" from="InvulnerabilityTimer" to="." method="_on_InvulnerabilityTimer_timeout"]
+[connection signal="timeout" from="DeathTimer" to="." method="_on_DeathTimer_timeout"]

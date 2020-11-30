@@ -139,8 +139,8 @@ margin_bottom = 73.0
 [node name="APMainMenu" type="AnimationPlayer" parent="MainMenu"]
 anims/fadeIn = SubResource( 3 )
 anims/fadeOut = SubResource( 4 )
-[connection signal="timeout" from="Game/ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="Game/ScoreTimer" to="Game" method="_on_ScoreTimer_timeout"]
-[connection signal="timeout" from="Game/GameWaitTimer" to="." method="_on_GameWaitTimer_timeout"]
+[connection signal="timeout" from="Game/ScoreTimer" to="." method="_on_ScoreTimer_timeout"]
 [connection signal="timeout" from="Game/GameWaitTimer" to="Game" method="_on_GameWaitTimer_timeout"]
+[connection signal="timeout" from="Game/GameWaitTimer" to="." method="_on_GameWaitTimer_timeout"]
 [connection signal="timeout" from="Game/LevelTimer" to="Game/EnemySpawn" method="_on_LevelTimer_timeout"]

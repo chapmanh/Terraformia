@@ -117,11 +117,11 @@ func game_music_up():
 	print("Game music up")
 	audioBGM.volume_db = -80
 	audioBGM.play(0.0)
-	audioBGMTween.interpolate_property(audioBGM, "volume_db", -80, -12, 4.0, 1, Tween.EASE_IN)
+	audioBGMTween.interpolate_property(audioBGM, "volume_db", -80, -20, 4.0, 1, Tween.EASE_IN)
 	audioBGMTween.start()
 
 func game_music_down():
-	audioBGMTween.interpolate_property(audioBGM, "volume_db", -12, -80, 4.0, 1, Tween.EASE_IN)
+	audioBGMTween.interpolate_property(audioBGM, "volume_db", -20, -80, 4.0, 1, Tween.EASE_IN)
 	audioBGMTween.start()
 
 func _on_Tween_tween_completed(object: Object, key: NodePath) -> void:

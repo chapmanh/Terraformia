@@ -7,6 +7,9 @@ onready var levelTimer = $LevelTimer
 onready var enemySpawn = $EnemySpawn
 onready var enemyGenTimer = $EnemySpawn/EnemyGenerator/EnemyGenerationTimer
 
+onready var audioBGM = $AudioBGM
+onready var audioBGMTween = $AudioBGM/Tween
+
 var plPlayer := preload("res://Player/Player.tscn")
 
 # Score board stuff
@@ -28,6 +31,7 @@ func _ready() -> void:
 #	var ss  = $Ground/ScrollingBackground.material.set_shader_param("Scroll Speed", 500)
 #	print(ss) # Returns 0?
 
+
 func game_over() -> void:
 	$ScoreTimer.stop()
 	#get_tree().call_group("mobs", "queue_free")
@@ -46,6 +50,13 @@ func game_over() -> void:
 	highScores.game_over()
 	highScores.buttonRestart.disabled = false
 	
+	# Fade down game music (AudioBGM)
+	game_music_down()
+	
+	# MainMenu music sound up
+	get_tree().current_scene.get_node("MainMenu").main_menu_music_up()
+	
+	
 
 func new_game():
 	print("new game")
@@ -59,8 +70,15 @@ func new_game():
 #	print("Level: ", $EnemySpawn.lvl)
 	$ScoreTimer.start()
 	
+	# AUDIO
+	# Fade down menu music
+	get_tree().current_scene.get_node("MainMenu").main_menu_music_down()
 	
-	$AudioBGM.play()
+	# Fade up game music (AudioBGM)
+#	audioBGM.volume_db = -15
+#	audioBGM.play(0.0)
+	game_music_up()
+	
 	_spawn_player(Vector2(100,300))
 	
 	# Ready time (links to spawn start)
@@ -95,4 +113,19 @@ func score_inc(n):
 		highScoreLabel.text = str(score)
 
 
+func game_music_up():
+	print("Game music up")
+	audioBGM.volume_db = -80
+	audioBGM.play(0.0)
+	audioBGMTween.interpolate_property(audioBGM, "volume_db", -80, -12, 4.0, 1, Tween.EASE_IN)
+	audioBGMTween.start()
 
+func game_music_down():
+	audioBGMTween.interpolate_property(audioBGM, "volume_db", -12, -80, 4.0, 1, Tween.EASE_IN)
+	audioBGMTween.start()
+
+func _on_Tween_tween_completed(object: Object, key: NodePath) -> void:
+	print("Game tween complete")
+	if object.volume_db == 0:
+		print("stopping game audio")
+		object.stop()
